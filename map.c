@@ -6,7 +6,7 @@
 /*   By: nkarabul <nkarabul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 20:26:13 by nkarabul          #+#    #+#             */
-/*   Updated: 2024/11/24 21:22:35 by nkarabul         ###   ########.fr       */
+/*   Updated: 2024/11/24 22:29:22 by nkarabul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int file_check(char *str)
 		return (-1);
 	return (0);
 }
-int map_size(t_cub *main, int i)
+int file_size(t_cub *main, int i)
 {
 	char *str;
 	int fd;
@@ -48,10 +48,16 @@ int map_size(t_cub *main, int i)
 	return (1);
 }
 
-int get_map(t_cub *main,int i)
+void get_loc_attr(t_cub *main,int i,int j)
+{
+	
+}
+
+int get_file(t_cub *main,int i)
 {
 	char	**map;
 	int		fd;
+	int		start = 0;
 
 	fd = open(main->file_path,O_RDWR,0644);
 	map = malloc(sizeof(char * ) * (main->map_size + 1));

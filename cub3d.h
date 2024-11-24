@@ -12,9 +12,9 @@ typedef struct s_cub{
 	int		map_size;
 }				t_cub;
 
-
-int map_size(t_cub *main, int i);
-int get_map(t_cub *main,int i);
+void start_parse(t_cub *main,int i,int j);
+int file_size(t_cub *main, int i);
+int get_file(t_cub *main,int i);
 int start_cub(char **av);
 
 
