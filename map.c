@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
 int file_check(char *str)
 {
 	int i = 0;
@@ -19,9 +20,7 @@ int file_check(char *str)
 	i--;
 	if(str[i] == 'b' && str[i-1] == 'u' && str[i-2] == 'c' && str[i-3] == '.')
 		return (1);
-	else
-		return (-1);
-	return (0);
+	return (-1);
 }
 int file_size(t_cub *main, int i)
 {
@@ -32,7 +31,7 @@ int file_size(t_cub *main, int i)
 		return (ft_putendl_fd("File extension is wrong.",2), -1);
 	fd = open(main->file_path,O_RDWR,0644);
 	if(fd == -1)
-		return (ft_putendl_fd("Map Fd Error!",2), -1);
+		return (ft_putendl_fd("File Fd Error!",2), -1);
 	while(1)
 	{
 		str = get_next_line(fd);
@@ -44,28 +43,31 @@ int file_size(t_cub *main, int i)
 	close(fd);
 	main->map_size = i;
 	if(i == 0)
-		return (ft_putendl_fd("Mapline does not exist.",2), -1);
+		return (ft_putendl_fd("File is empty.",2), -1);
 	return (1);
 }
 
-void get_loc_attr(t_cub *main,int i,int j)
-{
-	
-}
+
 
 int get_file(t_cub *main,int i)
 {
 	char	**map;
+	char	*tmp;
 	int		fd;
-	int		start = 0;
 
 	fd = open(main->file_path,O_RDWR,0644);
 	map = malloc(sizeof(char * ) * (main->map_size + 1));
 	if(!map)
-		return (ft_putendl_fd("Map Allocate Error!",2), -1);
+		return (ft_putendl_fd("File Allocate Error!",2), -1);
 	while(main->map_size > i)
-		map[i++] = get_next_line(fd);
+	{
+		map[i] = get_next_line(fd);
+		tmp = map[i];
+		map[i] = ft_strtrim(map[i]," \t \n");
+		free(tmp);
+		i++;
+	}
 	map[i] = 0;
-	main->map = map;
+	main->file = map;
 	return (1);
 }
