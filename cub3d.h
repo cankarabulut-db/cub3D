@@ -8,6 +8,7 @@
 
 #define FLOOR 4
 #define COLOR 5
+#define EMPTY 126
 
 #include "get_next_line/get_next_line.h"
 #include <stdio.h>
@@ -17,6 +18,7 @@
 typedef struct s_cub{
 	char	**file;
 	char	*file_path;
+	char	**map;
 	char	**floor;
 	char	**color;
 	char	*north_img;
@@ -26,6 +28,7 @@ typedef struct s_cub{
 	int		*floor_int;
 	int		*color_int;
 	int		map_size;
+	int		map_start;
 }				t_cub;
 
 typedef struct s_tmp{
@@ -40,6 +43,19 @@ int start_cub(char **av);
 
 int	ft_strcmp(const char *s1, const char *s2);
 int ft_exist(char *str,char a);
+void get_attr(t_cub *main,char *str);
+void get_loc_attr(t_cub *main,int x,int y);
+int ft_map_attr_finder(char *str,char *tb_found,int i,int j);
+int fill_control(char *str,char a,int i);
+int get_map(t_cub *main,int i);
+void start_parse(t_cub *main,int i,int j);
+void make_empty(char *str);
+void get_attr_floor_color(t_cub *main,char *str, char b);
+int attr_digitcheck(char **str);
+void attr_get_integer(t_cub *main,int type);
+int get_attr_count(t_cub *main,int x);
+int start_cub(char **av);
+int ft_alpha_check(char *str);
 
 
 

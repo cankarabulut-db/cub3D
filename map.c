@@ -63,7 +63,7 @@ int get_file(t_cub *main,int i)
 	{
 		map[i] = get_next_line(fd);
 		tmp = map[i];
-		map[i] = ft_strtrim(map[i]," \t \n");
+		map[i] = ft_strtrim(map[i]," \t");
 		free(tmp);
 		i++;
 	}

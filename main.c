@@ -22,37 +22,28 @@ void s_init(t_cub *main)
 	main->north_img = NULL;
 	main->floor = NULL;
 	main->color = NULL;
-}
-int start_cub(char **av)
-{
-	t_cub	main;
-
-	s_init(&main);
-	main.file_path = av[1];
-	if(file_size(&main,0) == 1 && get_file(&main,0) == 1)
-	{
-		start_parse(&main,0,0);
-	}
-	else
-		return (-1);
-	return (1);
+	main->map = NULL;
 }
 
-int get_attr_count(char *str)
+int get_attr_count(t_cub *main,int x)
 {
 	static		int control;
-	if(str[0] == 'F')
-		control++;
-	else if(str[0] == 'C' && str[1] == ' ')
-		control++;
-	else if((str[0] == 'W' && str[1] == 'E') && str[2] == ' ')
-		control++;
-	else if((str[0] == 'E' && str[1] == 'A') && str[2] == ' ')
-		control++;
-	else if((str[0] == 'S' && str[1] == 'O') && str[2] == ' ')
-		control++;
-	else if((str[0] == 'N' && str[1] == 'O') && str[2] == ' ')
-		control++;
+
+	while(main->file[++x])
+	{
+		if(main->file[x][0] == 'F')
+			control++;
+		else if(main->file[x][0] == 'C' && main->file[x][1] == ' ')
+			control++;
+		else if((main->file[x][0] == 'W' && main->file[x][1] == 'E') && main->file[x][2] == ' ')
+			control++;
+		else if((main->file[x][0] == 'E' && main->file[x][1] == 'A') && main->file[x][2] == ' ')
+			control++;
+		else if((main->file[x][0] == 'S' && main->file[x][1] == 'O') && main->file[x][2] == ' ')
+			control++;
+		else if((main->file[x][0] == 'N' && main->file[x][1] == 'O') && main->file[x][2] == ' ')
+			control++;
+	}
 	return control;
 }
 int ft_digit_check(char *str)
@@ -61,6 +52,18 @@ int ft_digit_check(char *str)
 	while(str[i])
 	{
 		if(ft_isdigit(str[i]))
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int ft_alpha_check(char *str)
+{
+	int i = 0;
+	while(str[i])
+	{
+		if(ft_isalpha(str[i]))
 			return (1);
 		i++;
 	}
@@ -97,77 +100,53 @@ void attr_get_integer(t_cub *main,int type)
 		main->floor_int[2] = ft_atoi(main->floor[2]);
 	}
 }
-
+int ft_strplen(char **str)
+{
+	int i = 0;
+	if(!str)
+		return (i);
+	while(str[i])
+		i++;
+	return (i);
+}
 void get_attr_floor_color(t_cub *main,char *str, char b)
 {
+	char *tmp;
 	if(b == COLOR)
 	{
-		char *tmp;
 		tmp = ft_strdup(str + 1);
 		main->color = ft_split(tmp,',');
-		if(attr_digitcheck(main->color) == -1) // free
+		if(attr_digitcheck(main->color) == -1 || ft_strplen(main->color) != 3) // free
 			printf("bitti\n");
 		attr_get_integer(main,COLOR);
 		free(tmp);
 	}
 	else if(b == FLOOR)
 	{
-		char *tmp;
-
 		tmp = ft_strdup(str + 1);
 		main->floor = ft_split(tmp,',');
-		if(attr_digitcheck(main->floor) == -1)
+		if(attr_digitcheck(main->floor) == -1 || ft_strplen(main->floor) != 3)
 			printf("bitti\n");
 		attr_get_integer(main,FLOOR);
-		
 		free(tmp);
 	}
 }
-void get_attr(t_cub *main,char *str)
+
+int start_cub(char **av)
 {
-	if(str[0] == 'F')
-		get_attr_floor_color(main,str,FLOOR);
-	else if(str[0] == 'C')
-		get_attr_floor_color(main,str,COLOR);
-	else if((str[0] == 'W' && str[1] == 'E'))
-		main->west_img = ft_strtrim(str + 2, " \n \t");
-	else if((str[0] == 'E' && str[1] == 'A'))
-		main->east_img = ft_strtrim(str + 2, " \n \t");
-	else if((str[0] == 'S' && str[1] == 'O'))
-		main->south_img = ft_strtrim(str + 2, " \n \t");
-	else if((str[0] == 'N' && str[1] == 'O'))
-		main->north_img = ft_strtrim(str + 2, " \n \t");
-}
+	t_cub	main;
 
-
-
-void get_loc_attr(t_cub *main,int x,int y)
-{
-	while(main->file[x])
-		y = get_attr_count(main->file[x++]);
-	if(y != 6)
+	s_init(&main);
+	main.file_path = av[1];
+	if(file_size(&main,0) == 1 && get_file(&main,0) == 1)
 	{
-		printf("%s\n","missing arguments "); // free atmayı unutma.
-		exit(0);
+		start_parse(&main,0,0);
 	}
-	x = 0;
-	while(main->file[x])
-		get_attr(main,main->file[x++]);
+	else
+		return (-1);
+	return (1);
 }
-void start_parse(t_cub *main,int i,int j)
-{
-	t_tmp tmp;
 
-	tmp.floor = NULL;
-	(void)i;
-	(void)j;
-	get_loc_attr(main, 0, 0);
-	for (int i = 0; main->file[i]; i++)
-	{
-		printf("%s\n",main->file[i]);
-	}
-	
-}
 int main(int ac,char **av)
 {
 	(void)av;

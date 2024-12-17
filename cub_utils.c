@@ -23,3 +23,15 @@ int ft_exist(char *str,char a)
 	}
 	return (0);
 }
+
+void make_empty(char *str)
+{
+	int i;
+
+	i = 0;
+	while(str[i])
+	{
+		str[i] = EMPTY;
+		i++;
+	}
+}
