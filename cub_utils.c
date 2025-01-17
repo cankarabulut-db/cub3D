@@ -12,6 +12,16 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }
 
+int ft_strplen(char **str)
+{
+	int i = 0;
+	if(!str)
+		return (i);
+	while(str[i])
+		i++;
+	return (i);
+}
+
 int ft_exist(char *str,char a)
 {
 	int i = 0;
@@ -22,6 +32,19 @@ int ft_exist(char *str,char a)
 		i++;
 	}
 	return (0);
+}
+char **ft_strddup(char **str,int x)
+{
+	char **new;
+
+	new = malloc(sizeof(char *) * (ft_strplen(str) + 1));
+	while(str[x])
+	{
+		new[x] = ft_strdup(str[x]);
+		x++;
+	}
+	new[x] = 0;
+	return (new);
 }
 
 void make_empty(char *str)

@@ -36,10 +36,18 @@ typedef struct s_tmp{
 	char	*color;
 }				t_tmp;
 
+typedef struct s_point{
+	int	x;
+	int	y;
+}				t_point;
+
 void start_parse(t_cub *main,int i,int j);
 int file_size(t_cub *main, int i);
 int get_file(t_cub *main,int i);
 int start_cub(char **av);
+int ft_strplen(char **str);
+void	f_fill(char **tab, t_point map_size, int y, int x);
+char **ft_strddup(char **str,int x);
 
 int	ft_strcmp(const char *s1, const char *s2);
 int ft_exist(char *str,char a);

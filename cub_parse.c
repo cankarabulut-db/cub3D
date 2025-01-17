@@ -59,21 +59,14 @@ int fill_control(char *str,char a,int i)
 	{
 		if(str[i] == a)
 			i++;
+		else if(str[i] == '\n'  || str[i] == '\t')
+			break;
 		else
 			return (0);
 	}
 	return (1);
 }
 
-char *ft_strdup_free(char *str)
-{
-	char *tmp;
-
-	tmp = str;
-	str = ft_strdup(str);
-	free(tmp);
-	return (str);
-}
 int check_if_seperated(t_cub *main,int i)
 {
 	int flag;
@@ -98,7 +91,7 @@ int check_if_seperated(t_cub *main,int i)
 		i++;
 	}
 	if(main->map_size < 3)
-		printf("Error");
+		return (-1);
 	return (1);
 }
 int get_map(t_cub *main,int i)
@@ -110,7 +103,7 @@ int get_map(t_cub *main,int i)
 	{
 		if(ft_map_attr_finder(main->file[main->map_start], "01N", 0, 0) == 1)
 		{
-			main->map[i] = ft_strdup_free(main->file[main->map_start]);
+			main->map[i] = ft_strtrim(main->file[main->map_start], "\n");
 			i++;
 			main->map_start++;
 		}
@@ -138,17 +131,50 @@ void	free_double_ptr(char **str)
 	if (str)
 		free(str);
 }
+int map_surrounding_control(t_cub *main)
+{	int x = 0;
+	if(fill_control(main->map[0], '1', 0) == 0)
+		return (-1);
+	if(fill_control(main->map[ft_strplen(main->map) - 1], '1', 0) == 0)
+		return (-1);
+	while(main->map[x])
+	{
+		if(main->map[x][0] != '1')
+			return (-1);
+		if(main->map[x][ft_strlen(main->map[x]) - 1] != '1')
+			return (-1);
+		x++;
+	}
+	return (1);
+}
+
+int find_the_biggest(char **map)
+{
+	(void)map;
+	return 1;
+}
+int side_by_side_check(t_cub *main)
+{
+	(void)main;
+	return (1);	
+}
 void start_parse(t_cub *main,int i,int j)
 {
 	(void)i;
 	(void)j;
 	get_loc_attr(main, 0, 0);
-	if(check_if_seperated(main,0))
+	if(check_if_seperated(main,0) == 1)
 	{
 		get_map(main,0);
+		if(map_surrounding_control(main) == -1)
+			printf("Map Error\n");
+		//if(side_by_side_check(main) == -1)
+		//	printf("sidebyside error\n");
 	}
-	else
+	else if(check_if_seperated(main,0) == -1)
 	{
+		printf("wrong seperated map.\n");
+		exit(1);
 		free_double_ptr(main->file);
 	}
 

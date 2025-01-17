@@ -100,15 +100,6 @@ void attr_get_integer(t_cub *main,int type)
 		main->floor_int[2] = ft_atoi(main->floor[2]);
 	}
 }
-int ft_strplen(char **str)
-{
-	int i = 0;
-	if(!str)
-		return (i);
-	while(str[i])
-		i++;
-	return (i);
-}
 void get_attr_floor_color(t_cub *main,char *str, char b)
 {
 	char *tmp;
@@ -143,7 +134,10 @@ int start_cub(char **av)
 		start_parse(&main,0,0);
 	}
 	else
-		return (-1);
+		{
+			printf("Error filesize or get file\n");
+			return (-1);
+		}
 	return (1);
 }
 

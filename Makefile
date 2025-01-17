@@ -1,6 +1,6 @@
 NAME = cub3D
-SRC = main.c map.c cub_utils.c cub_parse.c\
-			get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
+SRC = main.c map.c cub_utils.c cub_parse.c flood_fill.c\
+	  get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 RM = rm -rf
