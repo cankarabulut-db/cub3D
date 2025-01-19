@@ -57,10 +57,8 @@ int fill_control(char *str,char a,int i)
 {
 	while(str[i])
 	{
-		if(str[i] == a)
+		if(str[i] == a || str[i] == ' ')
 			i++;
-		else if(str[i] == '\n'  || str[i] == '\t')
-			break;
 		else
 			return (0);
 	}
