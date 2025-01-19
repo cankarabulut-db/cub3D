@@ -145,16 +145,39 @@ int map_surrounding_control(t_cub *main)
 	}
 	return (1);
 }
-
-int find_the_biggest(char **map)
+int find_the_longest(char **str)
 {
-	(void)map;
-	return 1;
+	int i;
+	size_t tmp;
+
+	i = -1;
+	tmp = 0;
+	while(str[++i])
+	{
+		if(ft_strlen(str[i]) > tmp)
+			tmp = ft_strlen(str[i]);
+	}
+	return (tmp);
 }
 int side_by_side_check(t_cub *main)
 {
-	(void)main;
-	return (1);	
+	char **new_map;
+	int longest_map_width;
+	int y;
+	int x;
+	
+	y = ft_strplen(main->map);
+	longest_map_width = find_the_longest(main->map);
+	new_map = malloc(sizeof(char *) * (y + 3));
+	while(y > 0)
+	{
+		new_map[x] = malloc(sizeof(char) * (longest_map_width + 3));
+		y--;
+		x++;
+	}
+	new_map[x] = 0;
+	
+	return (1);
 }
 void start_parse(t_cub *main,int i,int j)
 {
@@ -166,8 +189,8 @@ void start_parse(t_cub *main,int i,int j)
 		get_map(main,0);
 		if(map_surrounding_control(main) == -1)
 			printf("Map Error\n");
-		//if(side_by_side_check(main) == -1)
-		//	printf("sidebyside error\n");
+		if(side_by_side_check(main) == -1)
+			printf("sidebyside error\n");
 	}
 	else if(check_if_seperated(main,0) == -1)
 	{
