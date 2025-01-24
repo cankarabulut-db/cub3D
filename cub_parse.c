@@ -164,7 +164,7 @@ int side_by_side_check(t_cub *main)
 	char **new_map;
 	int longest_map_width;
 	int y;
-	int x;
+	int x = 0;
 	
 	y = ft_strplen(main->map);
 	longest_map_width = find_the_longest(main->map);
