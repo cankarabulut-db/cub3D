@@ -168,31 +168,30 @@ void fill_string(char *str,int longest_map_width)
 	while(longest_map_width > i)
 	{
 		str[i] = '*';
-		printf("%c",str[i]);
 		i++;
 	}
-	printf("\n");
 	str[i] = 0;
 }
+
 int side_by_side_check(t_cub *main)
 {
 	char **new_map;
 	int longest_map_width;
-	int y;
+	int size;
 	int x = 0;
 	
-	y = ft_strplen(main->map) + 3;
+	size = ft_strplen(main->map) + 3;
 	longest_map_width = find_the_longest(main->map);
-	new_map = malloc(sizeof(char *) * (y + 3));
-	while(y + 3 > 0)
+	new_map = malloc(sizeof(char *) * (size));
+	while(size > 0)
 	{
 		new_map[x] = malloc(sizeof(char) * (longest_map_width + 3));
 		fill_string(new_map[x],longest_map_width);
-		y--;
+		size--;
 		x++;
 	}
-	new_map[x] = 0;
-	
+	new_map[x] = '\0';
+	fill_the_map(main,new_map);
 	return (1);
 }
 void start_parse(t_cub *main,int i,int j)
@@ -203,10 +202,10 @@ void start_parse(t_cub *main,int i,int j)
 	if(check_if_seperated(main,0) == 1)
 	{
 		get_map(main,0);
-		if(map_surrounding_control(main) == -1)
-			printf("Map Error\n");
 		if(side_by_side_check(main) == -1)
 			printf("sidebyside error\n");
+		if(map_surrounding_control(main) == -1)
+			printf("Map Error\n");
 	}
 	else if(check_if_seperated(main,0) == -1)
 	{

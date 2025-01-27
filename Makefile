@@ -16,6 +16,7 @@ $(NAME): $(OBJ)
     # make -C mlx
 	make -C libft
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+	
 all: $(NAME)
 fclean: clean
 	rm -rf libft/*.a
@@ -23,8 +24,8 @@ fclean: clean
 	rm -rf $(NAME)
 clean:
 	# make clean -C mlx
-	rm -rf src/*.o src/parse/*.o
-	rm -rf libft/*.o
+	rm -rf $(OBJ)
+	make fclean -C libft
 	rm -rf get_next_line/*.o
 re: fclean all
 .PHONY: all clean fclean re
