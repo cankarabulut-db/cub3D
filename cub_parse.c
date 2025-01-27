@@ -159,6 +159,21 @@ int find_the_longest(char **str)
 	}
 	return (tmp);
 }
+
+void fill_string(char *str,int longest_map_width)
+{
+	int i;
+
+	i = 0;
+	while(longest_map_width > i)
+	{
+		str[i] = '*';
+		printf("%c",str[i]);
+		i++;
+	}
+	printf("\n");
+	str[i] = 0;
+}
 int side_by_side_check(t_cub *main)
 {
 	char **new_map;
@@ -166,12 +181,13 @@ int side_by_side_check(t_cub *main)
 	int y;
 	int x = 0;
 	
-	y = ft_strplen(main->map);
+	y = ft_strplen(main->map) + 3;
 	longest_map_width = find_the_longest(main->map);
 	new_map = malloc(sizeof(char *) * (y + 3));
-	while(y > 0)
+	while(y + 3 > 0)
 	{
 		new_map[x] = malloc(sizeof(char) * (longest_map_width + 3));
+		fill_string(new_map[x],longest_map_width);
 		y--;
 		x++;
 	}
@@ -195,8 +211,8 @@ void start_parse(t_cub *main,int i,int j)
 	else if(check_if_seperated(main,0) == -1)
 	{
 		printf("wrong seperated map.\n");
-		exit(1);
 		free_double_ptr(main->file);
+		exit(1);
 	}
 
 }
