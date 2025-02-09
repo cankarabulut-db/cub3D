@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int file_check(char *str)
 {
@@ -28,10 +28,10 @@ int file_size(t_cub *main, int i)
 	int fd;
 	
 	if(file_check(main->file_path) == -1)
-		return (ft_putendl_fd("File extension is wrong.",2), -1);
+		return (0);
 	fd = open(main->file_path,O_RDWR,0644);
 	if(fd == -1)
-		return (ft_putendl_fd("File Fd Error!",2), -1);
+		return (0);
 	while(1)
 	{
 		str = get_next_line(fd);
@@ -41,13 +41,26 @@ int file_size(t_cub *main, int i)
 			i++;
 	}
 	close(fd);
-	main->map_size = i;
+	main->file_size = i;
 	if(i == 0)
-		return (ft_putendl_fd("File is empty.",2), -1);
+		return (0);
 	return (1);
 }
 
+void empty_replacer(char *str)
+{
+	int i;
 
+	i = 0;
+	while(str[i])
+	{
+		if(str[i] >= '\t' && str[i] <= 'r')
+		{
+			str[i] = ' ';
+		}
+		i++;
+	}
+}
 
 int get_file(t_cub *main,int i)
 {
@@ -56,18 +69,45 @@ int get_file(t_cub *main,int i)
 	int		fd;
 
 	fd = open(main->file_path,O_RDWR,0644);
-	map = malloc(sizeof(char * ) * (main->map_size + 1));
+	map = malloc(sizeof(char * ) * (main->file_size + 1));
 	if(!map)
-		return (ft_putendl_fd("File Allocate Error!",2), -1);
-	while(main->map_size > i)
+		return (0);
+	while(main->file_size > i)
 	{
 		map[i] = get_next_line(fd);
 		tmp = map[i];
-		map[i] = ft_strtrim(map[i]," \t");
+		map[i] = ft_strtrim(map[i],"\n");
 		free(tmp);
 		i++;
 	}
 	map[i] = 0;
 	main->file = map;
+	return (1);
+}
+int check_if_seperated(t_cub *main,int i)
+{
+	int flag;
+
+	flag = 0;
+	main->file_size = 0;
+	while(!ft_map_attr_finder(main->file[i], "01N", 0, 0))
+		i++;
+	if(!main->file[i])
+		return (0); // free
+	main->map_start = i;
+	while(main->file[i])
+	{
+		if(ft_map_attr_finder(main->file[i], "01N", 0, 0))
+		{
+			if(flag == 1)
+				return (0);
+			main->file_size++;
+		}
+		else
+			flag = 1;
+		i++;
+	}
+	if(main->file_size < 3)
+		return (0);
 	return (1);
 }
