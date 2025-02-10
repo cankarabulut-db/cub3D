@@ -22,7 +22,7 @@ int file_check(char *str)
 		return (1);
 	return (-1);
 }
-int file_size(t_cub *main, int i)
+int map_size(t_cub *main, int i)
 {
 	char *str;
 	int fd;
@@ -41,7 +41,7 @@ int file_size(t_cub *main, int i)
 			i++;
 	}
 	close(fd);
-	main->file_size = i;
+	main->map_size = i;
 	if(i == 0)
 		return (0);
 	return (1);
@@ -69,10 +69,10 @@ int get_file(t_cub *main,int i)
 	int		fd;
 
 	fd = open(main->file_path,O_RDWR,0644);
-	map = malloc(sizeof(char * ) * (main->file_size + 1));
+	map = malloc(sizeof(char * ) * (main->map_size + 1));
 	if(!map)
 		return (0);
-	while(main->file_size > i)
+	while(main->map_size > i)
 	{
 		map[i] = get_next_line(fd);
 		tmp = map[i];
@@ -89,7 +89,7 @@ int check_if_seperated(t_cub *main,int i)
 	int flag;
 
 	flag = 0;
-	main->file_size = 0;
+	main->map_size = 0;
 	while(!ft_map_attr_finder(main->file[i], "01N", 0, 0))
 		i++;
 	if(!main->file[i])
@@ -101,13 +101,13 @@ int check_if_seperated(t_cub *main,int i)
 		{
 			if(flag == 1)
 				return (0);
-			main->file_size++;
+			main->map_size++;
 		}
 		else
 			flag = 1;
 		i++;
 	}
-	if(main->file_size < 3)
+	if(main->map_size < 3)
 		return (0);
 	return (1);
 }

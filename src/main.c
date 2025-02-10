@@ -47,7 +47,7 @@ int attr_digitcheck(char **str)
 		if((tmp >= 0 && tmp <= 255) && ft_digit_check(str[i]))
 			i++;
 		else
-			return (-1);
+			return (0);
 	}
 	return 1;
 }
@@ -58,7 +58,7 @@ int start_cub(char **av)
 
 	s_init(&main);
 	main.file_path = av[1];
-	if(!file_size(&main,0))
+	if(!map_size(&main,0))
 		error_write_nfree("File Error.");
 	if(!get_file(&main,0))
 		error_write_nfree("File Error.");
@@ -66,6 +66,7 @@ int start_cub(char **av)
 	{
 		free_double_ptr(main.file);
 		ft_putendl_fd("Something is wrong in xpm path.",2);
+		exit(1);
 	}
 		start_parse(&main,0,0);
 	return (1);

@@ -6,6 +6,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 # MLX_FLAGS_MAC = -Lmlx -lmlx -framework OpenGL -framework AppKit
 SRCS = ./src/parse/p_attr.c \
+		./src/parse/p_attr1.c \
 		./src/parse/p_utils.c \
 		./src/parse/p_utils1.c \
 		./src/parse/p_file.c \

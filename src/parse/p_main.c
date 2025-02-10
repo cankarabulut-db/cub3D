@@ -94,7 +94,7 @@ void start_parse(t_cub *main,int i,int j)
 	(void)j;
 	if(check_if_seperated(main,0) == 1)
 	{
-		get_map(main,0);
+		get_map(main,0);	
 		if(!content_control(main,0,-1,0))
 			printf("Map Error\n");
 		if(!side_by_side_check(main))

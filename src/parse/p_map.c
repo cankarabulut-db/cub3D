@@ -35,7 +35,7 @@ void s_init(t_cub *main)
 {
 	main->file = NULL;
 	main->file_path = NULL;
-	main->file_size = -1;
+	main->map_size = -1;
 	main->east_img = NULL;
 	main->west_img = NULL;
 	main->south_img = NULL;
@@ -53,26 +53,29 @@ void s_init(t_cub *main)
 }
 void get_attr_floor_color(t_cub *main,char *str, char b)
 {
+	char *tmp;
+
+	tmp = str;
 	if(b == COLOR)
 	{
-		main->color = ft_split(str + 1,',');
+		main->color = ft_split(tmp + 1,',');
 		attr_get_integer(main,COLOR);
 	}
 	else if(b == FLOOR)
 	{
-		main->floor = ft_split(str + 1,',');
+		main->floor = ft_split(tmp + 1,',');
 		attr_get_integer(main,FLOOR);
 	}
 }
 
 int get_map(t_cub *main,int i)
 {	
-	main->map = malloc(sizeof(char *) * (main->file_size + 1));
+	main->map = malloc(sizeof(char *) * (main->map_size + 1));
 	if(!main->map)
 		return (-1);
-	while(main->file_size + 1 > i)
+	while(main->map_size + 1 > i)
 	{
-		if(ft_map_attr_finder(main->file[main->map_start], "01N", 0, 0) == 1)
+		if(ft_map_attr_finder(main->file[main->map_start], "01", 0, 0) == 1)
 		{
 			main->map[i] = ft_strtrim(main->file[main->map_start],"\n");
 			i++;

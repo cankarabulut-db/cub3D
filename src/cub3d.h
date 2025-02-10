@@ -29,7 +29,7 @@ typedef struct s_cub{
 	char	*east_img;
 	int		*floor_int;
 	int		*color_int;
-	int		file_size;
+	int		map_size;
 	int		map_start;
 	int		char_x;
 	int		char_y;
@@ -51,7 +51,8 @@ int walkability_check(t_cub *main,int x,int y);
 int ft_check(char **sur, int y,int x);
 void start_parse(t_cub *main,int i,int j);
 int player_loc_check(char a);
-int file_size(t_cub *main, int i);
+int map_size(t_cub *main, int i);
+void free_color_floor(int *color_floor);
 int get_file(t_cub *main,int i);
 int start_cub(char **av);
 int ft_strplen(char **str);
