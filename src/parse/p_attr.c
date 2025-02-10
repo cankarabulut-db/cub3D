@@ -1,5 +1,4 @@
 #include "../cub3d.h"
-
 void get_attr(t_cub *main,char *str)
 {
 	int true;
@@ -20,9 +19,10 @@ void get_attr(t_cub *main,char *str)
 	else if((str[i] == 'S' && str[i + 1] == 'O') && ++true)
 		main->south_img = ft_strtrim(str + 2, " \n \t");
 	else if((str[i] == 'N' && str[i + 1] == 'O') && ++true)
-		main->north_img = ft_strtrim(str + 2, " \n \t");
+		main->north_img = ft_strtrim(str + 2, " \n\t");
 	if(true == 2)
 		make_empty(str);
+	
 }
 
 void free_attr(t_cub *main)
@@ -64,41 +64,55 @@ int get_loc_attr(t_cub *main,int x,int y)
 		free_attr(main);
 		return (0);
 	}
-	printf("Floor: %s\n",main->floor[0]);
-	printf("Floor: %s\n",main->floor[1]);
-	printf("Floor: %s\n",main->floor[2]);
-	printf("Color: %s\n",main->color[0]);
-	printf("Color: %s\n",main->color[1]);
-	printf("Color: %s\n",main->color[2]);
-	printf("East: %s\n",main->east_img);
-	printf("West: %s\n",main->west_img);
-	printf("South: %s\n",main->south_img);
-	printf("North: %s\n",main->north_img);
+	//printf("Floor: %s\n",main->floor[0]);
+	//printf("Floor: %s\n",main->floor[1]);
+	//printf("Floor: %s\n",main->floor[2]);
+	//printf("Color: %s\n",main->color[0]);
+	//printf("Color: %s\n",main->color[1]);
+	//printf("Color: %s\n",main->color[2]);
+	//printf("East: %s\n",main->east_img);
+	//printf("West: %s\n",main->west_img);
+	//printf("South: %s\n",main->south_img);
+	//printf("North: %s\n",main->north_img);
+	
+
 	return (1);
+}
+
+int attr_check(t_cub *main,int control,int x,int i)
+{
+	if(main->file[x][i] == 'F')
+		control++;
+	else if(main->file[x][i] == 'C' && 
+	(main->file[x][i + 1] == ' ' || main->file[x][i + 1] == '\t'))
+		control++;
+	else if((main->file[x][i] == 'W' && main->file[x][i + 1] == 'E') 
+	&&(main->file[x][i + 2] == ' ' || main->file[x][i + 2] == '\t'))
+		control++;
+	else if((main->file[x][i] == 'E' && main->file[x][i + 1] == 'A') 
+	&&(main->file[x][i + 2] == ' ' || main->file[x][i + 2] == '\t'))
+		control++;
+	else if((main->file[x][i] == 'S' && main->file[x][i + 1] == 'O') 
+	&& (main->file[x][i + 2] == ' ' || main->file[x][i + 2] == '\t'))
+		control++;
+	else if((main->file[x][i] == 'N' && main->file[x][i + 1] == 'O') 
+	&& (main->file[x][i + 2] == ' ' || main->file[x][i + 2] == '\t'))
+		control++;
+	return control;
 }
 
 int get_attr_count(t_cub *main,int x)
 {
-	static		int control;
+	int control;
 	int i;
 
 	i = 0;
+	control = 0;
 	while(main->file[++x])
 	{
 		while((main->file[x][i] == ' ' || main->file[x][i] == '\t') && main->file[x][i] == '\0')
 			i++;
-		if(main->file[x][i] == 'F')
-			control++;
-		else if(main->file[x][i] == 'C' && main->file[x][i + 1] == ' ')
-			control++;
-		else if((main->file[x][i] == 'W' && main->file[x][i + 1] == 'E') && main->file[x][i + 2] == ' ')
-			control++;
-		else if((main->file[x][i] == 'E' && main->file[x][i + 1] == 'A') && main->file[x][i + 2] == ' ')
-			control++;
-		else if((main->file[x][i] == 'S' && main->file[x][i + 1] == 'O') && main->file[x][i + 2] == ' ')
-			control++;
-		else if((main->file[x][i] == 'N' && main->file[x][i + 1] == 'O') && main->file[x][i + 2] == ' ')
-			control++;
+		control += attr_check(main,0,x,i);
 	}
 	return control;
 }

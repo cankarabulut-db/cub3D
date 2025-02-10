@@ -9,7 +9,7 @@
 
 #define FLOOR 4
 #define COLOR 5
-#define EMPTY 126
+#define EMPTY 1
 
 #include "../get_next_line/get_next_line.h"
 #include <stdio.h>

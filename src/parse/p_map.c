@@ -67,7 +67,27 @@ void get_attr_floor_color(t_cub *main,char *str, char b)
 		attr_get_integer(main,FLOOR);
 	}
 }
+int file_validation(char **file)
+{
+	int x;
+	int y;
 
+	y = 0;
+	x = 0;
+	while(file[y])
+	{
+		x = 0;
+		while(file[y][x])
+		{
+			if(file[y][x] > 32 && file[y][x] < 127)
+				return (0);
+			else
+				x++;
+		}
+		y++;
+	}
+	return (1);
+}
 int get_map(t_cub *main,int i)
 {	
 	main->map = malloc(sizeof(char *) * (main->map_size + 1));
@@ -78,6 +98,7 @@ int get_map(t_cub *main,int i)
 		if(ft_map_attr_finder(main->file[main->map_start], "01", 0, 0) == 1)
 		{
 			main->map[i] = ft_strtrim(main->file[main->map_start],"\n");
+			make_empty(main->file[main->map_start]);
 			i++;
 			main->map_start++;
 		}
@@ -87,6 +108,8 @@ int get_map(t_cub *main,int i)
 			break;
 		}
 	}
-	
+	if(!file_validation(main->file))
+		return (0);
+	free_double_ptr(main->file);
 	return (1);
 }
