@@ -51,19 +51,19 @@ void s_init(t_cub *main)
 	main->map_start = -1;
 	main->perspective = 0;
 }
-void get_attr_floor_color(t_cub *main,char *str, char b)
+void get_attr_floor_color(t_cub *main,char *str, char b,int i)
 {
 	char *tmp;
 
 	tmp = str;
 	if(b == COLOR)
 	{
-		main->color = ft_split(tmp + 1,',');
+		main->color = ft_split(tmp + i + 1,',');
 		attr_get_integer(main,COLOR);
 	}
 	else if(b == FLOOR)
 	{
-		main->floor = ft_split(tmp + 1,',');
+		main->floor = ft_split(tmp + i + 1,',');
 		attr_get_integer(main,FLOOR);
 	}
 }

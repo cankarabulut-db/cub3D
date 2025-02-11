@@ -9,20 +9,19 @@ void get_attr(t_cub *main,char *str)
 	while((str[i] == ' ' || str[i] == '\t' ) && str[i] != '\0')
 		i++;
 	if((str[i] == 'F' && str[i + 1] == ' ' ) && ++true)
-		get_attr_floor_color(main,str,FLOOR);
+		get_attr_floor_color(main,str,FLOOR,i);
 	else if((str[i] == 'C' && str[i + 1] == ' ') && ++true)
-		get_attr_floor_color(main,str,COLOR);
+		get_attr_floor_color(main,str,COLOR,i);
 	else if((str[i] == 'W' && str[i + 1] == 'E') && ++true)
-		main->west_img = ft_strtrim(str + 2, " \n \t");
+		main->west_img = ft_strtrim(str + i + 2, " \n \t");
 	else if((str[i] == 'E' && str[i + 1] == 'A') && ++true)
-		main->east_img = ft_strtrim(str + 2, " \n \t");
+		main->east_img = ft_strtrim(str + i + 2, " \n \t");
 	else if((str[i] == 'S' && str[i + 1] == 'O') && ++true)
-		main->south_img = ft_strtrim(str + 2, " \n \t");
+		main->south_img = ft_strtrim(str + i + 2, " \n \t");
 	else if((str[i] == 'N' && str[i + 1] == 'O') && ++true)
-		main->north_img = ft_strtrim(str + 2, " \n\t");
+		main->north_img = ft_strtrim(str + i + 2, " \n \t");
 	if(true == 2)
 		make_empty(str);
-	
 }
 
 void free_attr(t_cub *main)
@@ -48,7 +47,16 @@ void free_attr(t_cub *main)
 	main->south_img = NULL;
 	main->north_img = NULL;
 }
-
+int attribute_space_check(char *str, int x)
+{
+	while(str[x])
+	{
+		if((str[x] >= 9 && str[x] <= 13) || str[x] == 32)
+			return (1);
+		x++;
+	}
+	return (0);
+}
 int get_loc_attr(t_cub *main,int x,int y)
 {
 	y = get_attr_count(main,-1);
@@ -64,16 +72,35 @@ int get_loc_attr(t_cub *main,int x,int y)
 		free_attr(main);
 		return (0);
 	}
-	//printf("Floor: %s\n",main->floor[0]);
-	//printf("Floor: %s\n",main->floor[1]);
-	//printf("Floor: %s\n",main->floor[2]);
-	//printf("Color: %s\n",main->color[0]);
-	//printf("Color: %s\n",main->color[1]);
-	//printf("Color: %s\n",main->color[2]);
-	//printf("East: %s\n",main->east_img);
-	//printf("West: %s\n",main->west_img);
-	//printf("South: %s\n",main->south_img);
-	//printf("North: %s\n",main->north_img);
+	if(attribute_space_check(main->east_img,0) || attribute_space_check(main->west_img,0)
+		|| attribute_space_check(main->south_img,0) || attribute_space_check(main->north_img,0))
+	{
+		free_attr(main);
+		return (0);
+	}
+
+	//for (int i = 0; i < 3; i++)
+	//{
+	//	printf("%d ",main->color_int[i]);
+	//}
+	//printf("\n");
+	//for (int i = 0; i < 3; i++)
+	//{
+	//	printf("%d ",main->floor_int[i]);
+	//}
+	//printf("\n");
+	
+	
+	//printf("F1:%s\n",main->floor[0]);
+	//printf("F2:%s\n",main->floor[1]);
+	//printf("F3:%s\n",main->floor[2]);
+	//printf("C1:%s\n",main->color[0]);
+	//printf("C2:%s\n",main->color[1]);
+	//printf("C3:%s\n",main->color[2]);
+	//printf("%s\n",main->east_img);
+	//printf("%s\n",main->west_img);
+	//printf("%s\n",main->south_img);
+	//printf("%s\n",main->north_img);
 	
 
 	return (1);
@@ -87,10 +114,10 @@ int attr_check(t_cub *main,int control,int x,int i)
 	(main->file[x][i + 1] == ' ' || main->file[x][i + 1] == '\t'))
 		control++;
 	else if((main->file[x][i] == 'W' && main->file[x][i + 1] == 'E') 
-	&&(main->file[x][i + 2] == ' ' || main->file[x][i + 2] == '\t'))
+	&& (main->file[x][i + 2] == ' ' || main->file[x][i + 2] == '\t'))
 		control++;
 	else if((main->file[x][i] == 'E' && main->file[x][i + 1] == 'A') 
-	&&(main->file[x][i + 2] == ' ' || main->file[x][i + 2] == '\t'))
+	&& (main->file[x][i + 2] == ' ' || main->file[x][i + 2] == '\t'))
 		control++;
 	else if((main->file[x][i] == 'S' && main->file[x][i + 1] == 'O') 
 	&& (main->file[x][i + 2] == ' ' || main->file[x][i + 2] == '\t'))
@@ -110,9 +137,10 @@ int get_attr_count(t_cub *main,int x)
 	control = 0;
 	while(main->file[++x])
 	{
-		while((main->file[x][i] == ' ' || main->file[x][i] == '\t') && main->file[x][i] == '\0')
+		while(main->file[x][i] == ' ')
 			i++;
 		control += attr_check(main,0,x,i);
+		i = 0;
 	}
 	return control;
 }
@@ -122,6 +150,8 @@ void attr_get_integer(t_cub *main,int type)
 	if(type == COLOR)
 	{
 		main->color_int = malloc(sizeof(int) * (3));
+		if(!main->color)
+			return ;
 		if(ft_strplen(main->color) != 3)
 			return ;
 		main->color_int[0] = ft_atoi(main->color[0]);
@@ -131,6 +161,8 @@ void attr_get_integer(t_cub *main,int type)
 	else if(type == FLOOR)
 	{
 		main->floor_int = malloc(sizeof(int) * (3));
+		if(!main->floor)
+			return ;
 		if(ft_strplen(main->floor) != 3)
 			return ;
 		main->floor_int[0] = ft_atoi(main->floor[0]);

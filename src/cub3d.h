@@ -74,7 +74,7 @@ void s_init(t_cub *main);
 int get_map(t_cub *main,int i);
 void start_parse(t_cub *main,int i,int j);
 void make_empty(char *str);
-void get_attr_floor_color(t_cub *main,char *str, char b);
+void get_attr_floor_color(t_cub *main,char *str, char b,int i);
 int content_control(t_cub *main,int x,int y,int flag);
 int attr_digitcheck(char **str);
 void attr_get_integer(t_cub *main,int type);
