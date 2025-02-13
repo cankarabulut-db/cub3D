@@ -89,10 +89,13 @@ int file_validation(char **file)
 	return (1);
 }
 int get_map(t_cub *main,int i)
-{	
+{
 	main->map = malloc(sizeof(char *) * (main->map_size + 1));
 	if(!main->map)
-		return (-1);
+	{
+		free_double_ptr(main->file);
+		return (0);
+	}
 	while(main->map_size + 1 > i)
 	{
 		if(ft_map_attr_finder(main->file[main->map_start], "01", 0, 0) == 1)
@@ -109,7 +112,10 @@ int get_map(t_cub *main,int i)
 		}
 	}
 	if(!file_validation(main->file))
+	{
+		free_double_ptr(main->file);
 		return (0);
+	}
 	free_double_ptr(main->file);
 	return (1);
 }

@@ -13,8 +13,8 @@ int	free_double_ptr(char **str)
 	}
 	if (str)
 		free(str);
+	str = NULL;
 	return (0);
-	//str = NULL;
 }
 
 void flood_fill(char **map, int x, int y)

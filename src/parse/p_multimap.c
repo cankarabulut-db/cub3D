@@ -92,7 +92,10 @@ int side_by_side_check(t_cub *main)
 	if(!check_multimap(new_map))
 	{
 		free_double_ptr(new_map);
+		free_double_ptr(main->map);
+		free_attr(main);
 		return (0);
 	}
+	free_double_ptr(new_map);
 	return (1);
 }

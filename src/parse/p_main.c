@@ -42,26 +42,21 @@ int walkability_check(t_cub *main,int x,int y)
 	char **sur;
 	sur = surrounded_map(main);
 	find_the_player_loc(main,sur);
-	
-	
-	
+
 	if(!ft_check(sur,main->char_y,main->char_x))
-		return free_double_ptr(sur);
-	
+		return (0);
 	while(sur[y])
 	{
 		x = 0;
 		while(sur[y][x])
 		{
 			if(sur[y][x] == '0' && !ft_check(sur,y,x))
-			{
-				free_double_ptr(sur);
 				return (0);
-			}
 			x++;
 		}
 		y++;
 	}
+	free_double_ptr(sur);
     return (1);
 }
 int content_control(t_cub *main,int x,int y,int flag)
@@ -86,28 +81,36 @@ int content_control(t_cub *main,int x,int y,int flag)
 				return (0);
 		}
 	}
-	return (1);
+	if(flag != 1)
+		return (0);
+	return (1);	
 }
-void start_parse(t_cub *main,int i,int j)
+
+void map_content_walk_free(t_cub *main)
 {
-	(void)i;
-	(void)j;
+	free_double_ptr(main->map);
+	free_attr(main);
+	ft_putendl_fd("Map Error",2);
+	exit(1);
+}
+void start_parse(t_cub *main)
+{
 	if(check_if_seperated(main,0) == 1)
 	{
-		if(!get_map(main,0))
-			error_write_nfree("Map Error.");
-		if(!content_control(main,0,-1,0))
-			printf("Map Error\n");
+		if(!get_map(main,0) || !content_control(main,0,-1,0))
+			map_content_walk_free(main);
 		if(!side_by_side_check(main))
-			printf("Multimap Error\n");
+			map_content_walk_free(main);
 		if (!walkability_check(main,0,0))
-			printf("There is leak on the map\n");
+			map_content_walk_free(main);
 	}
 	else
 	{
-		printf("Map Error\n");
+		ft_putendl_fd("Map Error",2);
 		free_attr(main);
 		free_double_ptr(main->file);
 		exit(1);
 	}
+	free_double_ptr(main->map);
+	free_attr(main);
 }

@@ -1,18 +1,19 @@
 {
 	"version": "0.2.0",
 	"configurations": [
-		
-	  {
-		"name": "Simple Debug",
-		"type": "cppdbg",
-		"request": "launch",
-		"program": "${workspaceFolder}/cub3d",
-		"args": ["2_multi.cub"],
-		"miDebuggerPath": "/usr/local/bin/gdb",  // gdb yolu
-		"stopAtEntry": false,
-		"cwd": "${workspaceFolder}",
-		"externalConsole": false
-	  }
+		{
+			"name": "(lldb) Launch",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/cub3D",
+			"args": ["./maps/1_def.cub"],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"externalConsole": true,
+			"MIMode": "lldb"
+		}
+
 	]
   }
   

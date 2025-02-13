@@ -39,6 +39,7 @@ int map_size(t_cub *main, int i)
 			break;
 		else
 			i++;
+		free(str);
 	}
 	close(fd);
 	main->map_size = i;
@@ -75,8 +76,9 @@ int get_file(t_cub *main,int i)
 	while(main->map_size > i)
 	{
 		map[i] = get_next_line(fd);
-		tmp = map[i];
-		map[i] = ft_strtrim(map[i],"\n");
+		tmp = ft_strdup(map[i]);
+		free(map[i]);
+		map[i] = ft_strtrim(tmp,"\n");
 		free(tmp);
 		i++;
 	}
