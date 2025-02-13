@@ -83,8 +83,3 @@ int main(int ac,char **av)
 	if(start_cub(av) == 1)
 		return (0);
 }
-
-void __attribute__((destructor)) f()
-{
-	system("leaks cub3D");
-}

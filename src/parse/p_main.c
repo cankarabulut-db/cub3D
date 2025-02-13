@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   p_main.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nkarabul <nkarabul@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/13 12:37:22 by nkarabul          #+#    #+#             */
+/*   Updated: 2025/02/13 12:37:23 by nkarabul         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../cub3d.h"
 
 void error_write_nfree(char *str)
@@ -44,14 +56,20 @@ int walkability_check(t_cub *main,int x,int y)
 	find_the_player_loc(main,sur);
 
 	if(!ft_check(sur,main->char_y,main->char_x))
+	{
+		free_double_ptr(sur);
 		return (0);
+	}
 	while(sur[y])
 	{
 		x = 0;
 		while(sur[y][x])
 		{
 			if(sur[y][x] == '0' && !ft_check(sur,y,x))
+			{
+				free_double_ptr(sur);
 				return (0);
+			}
 			x++;
 		}
 		y++;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   p_map.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nkarabul <nkarabul@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/13 12:37:19 by nkarabul          #+#    #+#             */
+/*   Updated: 2025/02/13 12:37:21 by nkarabul         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../cub3d.h"
 int player_loc_check(char a)
 {
@@ -51,7 +63,7 @@ void s_init(t_cub *main)
 	main->map_start = -1;
 	main->perspective = 0;
 }
-void get_attr_floor_color(t_cub *main,char *str, char b,int i)
+void  get_attr_floor_color(t_cub *main,char *str, char b,int i)
 {
 	char *tmp;
 

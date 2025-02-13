@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   p_multimap.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nkarabul <nkarabul@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/13 12:37:15 by nkarabul          #+#    #+#             */
+/*   Updated: 2025/02/13 12:37:17 by nkarabul         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../cub3d.h"
 
 void fill_string(char *wall_map,int longest)
@@ -92,8 +104,6 @@ int side_by_side_check(t_cub *main)
 	if(!check_multimap(new_map))
 	{
 		free_double_ptr(new_map);
-		free_double_ptr(main->map);
-		free_attr(main);
 		return (0);
 	}
 	free_double_ptr(new_map);
