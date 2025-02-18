@@ -6,7 +6,7 @@
 /*   By: nkarabul <nkarabul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:37:19 by nkarabul          #+#    #+#             */
-/*   Updated: 2025/02/13 12:37:21 by nkarabul         ###   ########.fr       */
+/*   Updated: 2025/02/16 18:31:27 by nkarabul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void s_init(t_cub *main)
 	main->floor_int = 0;
 	main->map_start = -1;
 	main->perspective = 0;
+	main->s_line = ft_strdup("");
 }
 void  get_attr_floor_color(t_cub *main,char *str, char b,int i)
 {

@@ -1,0 +1,668 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.3
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Tue Feb 18 15:07:01 2025
+
+# Variables
+
+# makefile (from 'Makefile', line 29)
+OBJ = $(SRCS:.c=.o)
+# environment
+GDK_BACKEND = x11
+# environment
+LC_ALL = C
+# environment
+NO_AT_BRIDGE = 1
+# environment
+SSH_AGENT_LAUNCHER = gnome-keyring
+# environment
+LC_NAME = tr_TR.UTF-8
+# environment
+LC_NUMERIC = tr_TR.UTF-8
+# environment
+VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
+# environment
+VSCODE_CWD = /home/nkarabul/Desktop
+# environment
+LC_ADDRESS = tr_TR.UTF-8
+# default
+MAKE_COMMAND := make
+# environment
+QT_ACCESSIBILITY = 1
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# environment
+PWD = /home/nkarabul/Desktop/mycub
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+XDG_DATA_DIRS = /usr/share/ubuntu:/usr/share/gnome:/home/nkarabul/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+# environment
+OLDPWD = /home/nkarabul
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = /home/nkarabul/.config/Code/CachedData/cd4ee3b1c348a13bafd8f9ad8060705f6d4b9cba
+# environment
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session8
+# makefile (from 'Makefile', line 2)
+LIBFT = libft/libft.a
+# environment
+LANG = C
+# environment
+XAUTHORITY = /home/nkarabul/.Xauthority
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# environment
+GNOME_TERMINAL_SERVICE = :1.98
+# makefile
+MAKEFLAGS = pqrR
+# makefile
+CURDIR := /home/nkarabul/Desktop/mycub
+# makefile (from 'Makefile', line 8)
+SRCS = ./src/parse/p_attr.c ./src/parse/p_attr1.c ./src/parse/p_utils.c ./src/parse/p_utils1.c ./src/parse/p_file.c ./src/parse/p_main.c ./src/parse/p_map.c ./src/parse/p_multimap.c ./src/main.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c ./src/execute/exec1.c ./src/execute/exec2.c ./src/execute/exec3.c ./src/execute/exec4.c ./src/execute/exec5.c ./src/execute/exec6.c ./src/execute/exec7.c ./src/execute/exec8.c ./src/execute/exec9.c 
+# environment
+VSCODE_L10N_BUNDLE_LOCATION = 
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrR
+# environment
+SSH_AUTH_SOCK = /run/user/157558/keyring/ssh
+# default
+.SHELLFLAGS := -c
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 799872
+# environment
+KRB5CCNAME = FILE:/tmp/krb5cc_157558_k9FnjG
+# environment
+XDG_SESSION_TYPE = x11
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+SESSION_MANAGER = local/k1m34s11.42istanbul.com.tr:@/tmp/.ICE-unix/797714,unix/k1m34s11.42istanbul.com.tr:/tmp/.ICE-unix/797714
+# automatic
+*F = $(notdir $*)
+# environment
+CHROME_DESKTOP = code.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/157558/bus
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"userLocale":"tr","osLocale":"tr","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/code/resources/app/out/nls.messages.json","locale":"tr","availableLanguages":{}}
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# makefile
+SHELL = /bin/sh
+# default
+MAKECMDGOALS := all
+# environment
+XMODIFIERS = @im=ibus
+# environment
+SHLVL = 1
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/b97a96d5_09b3_4e26_9555_4fd50ddd812c
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = /home/nkarabul/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+# default
+MAKEFILES := 
+# environment
+LANGUAGE = tr:en
+# environment
+LC_MONETARY = tr_TR.UTF-8
+# automatic
+^F = $(notdir $^)
+# makefile (from 'Makefile', line 5)
+MLX_FLAGS = -Lmlx -lmlx -lXext -lX11 -lm
+# environment
+LC_TIME = tr_TR.UTF-8
+# environment
+DOCKER_HOST = unix:///run/user/157558/docker.sock
+# environment
+LC_TELEPHONE = tr_TR.UTF-8
+# automatic
+?F = $(notdir $?)
+# makefile (from 'Makefile', line 1)
+NAME = cub3D
+# environment
+GTK_IM_MODULE = ibus
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# automatic
++F = $(notdir $+)
+# environment
+XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
+# environment
+DESKTOP_SESSION = ubuntu
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+LOGNAME = nkarabul
+# makefile
+.DEFAULT_GOAL := cub3D
+# environment
+SYSTEMD_EXEC_PID = 797744
+# environment
+DISPLAY = :0
+# environment
+USER = nkarabul
+# environment
+GTK_MODULES = gail:atk-bridge
+# default
+MAKE_VERSION := 4.3
+# environment
+LC_MEASUREMENT = tr_TR.UTF-8
+# environment
+_ = /usr/bin/code
+# environment
+LC_PAPER = tr_TR.UTF-8
+# environment
+XDG_RUNTIME_DIR = /run/user/157558
+# makefile (from 'Makefile', line 6)
+CFLAGS = -Wall -Werror -Wextra -g
+# environment
+GPG_AGENT_INFO = /run/user/157558/gnupg/S.gpg-agent:0:1
+# environment
+COLORTERM = truecolor
+# environment
+XDG_SESSION_CLASS = user
+# environment
+HOME = /home/nkarabul
+# environment
+QT_IM_MODULE = ibus
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK = /run/user/157558/vscode-d9bb8b51-1.96-main.sock
+# environment
+TERM = xterm-256color
+# environment
+FT_HOOK_PATHNAME = login-user.d
+# environment
+PAPERSIZE = a4
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+VSCODE_CLI = 1
+# environment
+FT_HOOK_NAME = login-user
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+VTE_VERSION = 6800
+# environment
+XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/nkarabul
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# makefile (from 'Makefile', line 3)
+CC = gcc
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+VSCODE_ESM_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+GDMSESSION = ubuntu
+# environment
+LC_IDENTIFICATION = tr_TR.UTF-8
+# variable set hash-table stats:
+# Load=115/1024=11%, Rehash=0, Collisions=12/149=8%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# get_next_line (device 2064, inode 4301702): 8 files, no impossibilities so far.
+# src/execute (device 2064, inode 12870891): 11 files, no impossibilities so far.
+# src (device 2064, inode 8563653): 4 files, no impossibilities so far.
+# . (device 2064, inode 268443): 12 files, no impossibilities.
+# src/parse (device 2064, inode 268444): 10 files, no impossibilities so far.
+
+# 45 files, no impossibilities in 5 directories.
+
+# Implicit Rules
+
+%.o: %.c
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# 1 implicit rules, 0 (0.0%) terminal.
+# Files
+
+src/parse/p_map.o: src/parse/p_map.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/parse/p_map'
+#  Last modified 2025-02-18 14:51:49.060038706
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+src/execute/exec1.o: src/execute/exec1.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/execute/exec1'
+#  Last modified 2025-02-18 14:51:49.188043099
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+src/execute/exec7.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-08 19:46:32
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/parse/p_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-16 13:31:16.326645
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+get_next_line/get_next_line_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-16 13:31:16.322645
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/parse/p_file.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-16 13:31:16.326645
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-18 15:06:00.13760006
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/parse/p_multimap.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-16 13:31:16.326645
+#  File has been updated.
+#  Successfully updated.
+
+src/execute/exec6.o: src/execute/exec6.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/execute/exec6'
+#  Last modified 2025-02-18 14:53:01.08251442
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+src/execute/exec8.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-08 19:46:32
+ 
+#  File has been updated.
+#  Successfully updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	make clean -C mlx
+	rm -rf $(OBJ)
+	make -C libft clean
+
+# Not a target:
+src/parse/p_attr.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-18 14:49:34.491436003
+#  File has been updated.
+#  Successfully updated.
+
+src/execute/exec4.o: src/execute/exec4.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/execute/exec4'
+#  Last modified 2025-02-18 14:53:01.026512491
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+src/execute/exec7.o: src/execute/exec7.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/execute/exec7'
+#  Last modified 2025-02-18 14:53:01.110515384
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+src/execute/exec4.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-08 19:46:32
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/execute/exec5.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-08 19:46:32
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/main.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-18 14:59:18.239575825
+#  File has been updated.
+#  Successfully updated.
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+src/execute/exec5.o: src/execute/exec5.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/execute/exec5'
+#  Last modified 2025-02-18 14:53:01.054513456
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+src/parse/p_utils1.o: src/parse/p_utils1.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/parse/p_utils1'
+#  Last modified 2025-02-18 14:49:36.059489439
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+src/parse/p_attr1.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-16 13:31:16.326645
+#  File has been updated.
+#  Successfully updated.
+
+get_next_line/get_next_line.o: get_next_line/get_next_line.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'get_next_line/get_next_line'
+#  Last modified 2025-02-18 14:51:49.144041589
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+src/main.o: src/main.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/main'
+#  Last modified 2025-02-18 14:59:20.027638036
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+src/parse/p_utils.o: src/parse/p_utils.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/parse/p_utils'
+#  Last modified 2025-02-18 14:49:36.031488484
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+all: cub3D
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 42):
+	make -C libft fclean
+	rm -rf $(NAME)
+
+# Not a target:
+src/execute/exec2.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-17 14:41:47.049974784
+#  File has been updated.
+#  Successfully updated.
+
+src/parse/p_attr1.o: src/parse/p_attr1.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/parse/p_attr1'
+#  Last modified 2025-02-18 14:49:36.00348753
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+src/parse/p_utils1.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-16 13:31:16.326645
+#  File has been updated.
+#  Successfully updated.
+
+get_next_line/get_next_line_utils.o: get_next_line/get_next_line_utils.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'get_next_line/get_next_line_utils'
+#  Last modified 2025-02-18 14:51:49.160042138
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+src/parse/p_main.o: src/parse/p_main.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/parse/p_main'
+#  Last modified 2025-02-18 14:59:19.995636922
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+src/parse/p_file.o: src/parse/p_file.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/parse/p_file'
+#  Last modified 2025-02-18 14:49:36.095490666
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+src/execute/exec8.o: src/execute/exec8.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/execute/exec8'
+#  Last modified 2025-02-18 14:53:01.138516347
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+src/execute/exec3.o: src/execute/exec3.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/execute/exec3'
+#  Last modified 2025-02-18 14:53:19.043132945
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+src/execute/exec2.o: src/execute/exec2.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/execute/exec2'
+#  Last modified 2025-02-18 14:51:49.21604406
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+src/execute/exec9.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-18 14:53:17.619083888
+#  File has been updated.
+#  Successfully updated.
+
+src/parse/p_attr.o: src/parse/p_attr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/parse/p_attr'
+#  Last modified 2025-02-18 14:49:35.983486849
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+cub3D: src/parse/p_attr.o src/parse/p_attr1.o src/parse/p_utils.o src/parse/p_utils1.o src/parse/p_file.o src/parse/p_main.o src/parse/p_map.o src/parse/p_multimap.o src/main.o get_next_line/get_next_line.o get_next_line/get_next_line_utils.o src/execute/exec1.o src/execute/exec2.o src/execute/exec3.o src/execute/exec4.o src/execute/exec5.o src/execute/exec6.o src/execute/exec7.o src/execute/exec8.o src/execute/exec9.o
+#  Implicit rule search has not been done.
+#  Last modified 2025-02-18 15:06:01.649652943
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 35):
+	make -C mlx
+	make -C libft
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
+
+# Not a target:
+src/parse/p_main.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-18 14:59:14.063430535
+#  File has been updated.
+#  Successfully updated.
+
+src/parse/p_multimap.o: src/parse/p_multimap.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/parse/p_multimap'
+#  Last modified 2025-02-18 14:51:49.088039667
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+src/parse/p_map.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-18 14:32:46.55167243
+#  File has been updated.
+#  Successfully updated.
+
+.PHONY: all clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/execute/exec6.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-08 19:46:32
+#  File has been updated.
+#  Successfully updated.
+
+src/execute/exec9.o: src/execute/exec9.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/execute/exec9'
+#  Last modified 2025-02-18 14:53:19.067133772
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+get_next_line/get_next_line.c:
+#  Implicit rule search has been done.
+ 
+#  Last modified 2025-02-16 13:31:16.322645
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/execute/exec1.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-18 14:35:58.966564971
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/execute/exec3.c:
+#  Implicit rule search has been done.
+#  Last modified 2025-02-18 14:53:07.018718801
+#  File has been updated.
+#  Successfully updated.
+
+# files hash-table stats:
+# Load=49/1024=5%, Rehash=0, Collisions=0/149=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 109 / storage = 1656 B / avg = 15 B
+# current buf: size = 8162 B / used = 1656 B / count = 109 / avg = 15 B
+
+# strcache performance: lookups = 160 / hit rate = 31%
+# hash-table stats:
+# Load=109/8192=1%, Rehash=0, Collisions=0/160=0%
+# Finished Make data base on Tue Feb 18 15:07:01 2025
+
+ 

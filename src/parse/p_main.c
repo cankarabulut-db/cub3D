@@ -6,7 +6,7 @@
 /*   By: nkarabul <nkarabul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:37:22 by nkarabul          #+#    #+#             */
-/*   Updated: 2025/02/13 14:04:33 by nkarabul         ###   ########.fr       */
+/*   Updated: 2025/02/16 18:38:43 by nkarabul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,51 @@ int content_control(t_cub *main,int x,int y,int flag)
 	return (1);	
 }
 
+void player_finder(t_cub *main)
+{
+	int y;
+	int x;
+
+	x = 0;
+	y = 0;
+	while(main->map[y])
+	{
+		x = 0;
+		while(main->map[y][x])
+		{
+			if(player_loc_check(main->map[y][x]) == 1)
+			{
+				main->ch.direction = main->map[y][x];
+				main->ch.p_loc.x = x;
+				main->ch.p_loc.y = y;
+				return ;
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
+void	single_line(t_cub *parser)
+{
+	char	**map = surrounded_map(parser);
+	char 	*temp;
+	int		i;
+	
+	
+	i = 0;
+	while (map[i])
+	{
+		temp = parser->s_line;
+		parser->s_line = ft_strjoin(parser->s_line, map[i]);
+		free(temp);
+		i++;
+	}
+	parser->map_size1.y = ft_strplen(parser->map);
+	printf("Map Size: %d\n",parser->map_size1.y);
+	free_double_ptr(map);
+}
+
 void map_content_walk_free(t_cub *main)
 {
 	free_double_ptr(main->map);
@@ -121,6 +166,10 @@ void start_parse(t_cub *main)
 			map_content_walk_free(main);
 		if (!walkability_check(main,0,0))
 			map_content_walk_free(main);
+		player_finder(main);
+		single_line(main);
+		main->map_size1.y = ft_strplen(main->map);
+		main->map_size1.x = find_the_longest(main->map);
 	}
 	else
 	{
@@ -129,6 +178,4 @@ void start_parse(t_cub *main)
 		free_double_ptr(main->file);
 		exit(1);
 	}
-	free_double_ptr(main->map);
-	free_attr(main);
 }

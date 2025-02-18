@@ -2,9 +2,9 @@ NAME = cub3D
 LIBFT = libft/libft.a
 CC = gcc
 
+MLX_FLAGS = -Lmlx -lmlx -lXext -lX11 -lm
 CFLAGS = -Wall -Werror -Wextra -g
 
-# MLX_FLAGS_MAC = -Lmlx -lmlx -framework OpenGL -framework AppKit
 SRCS = ./src/parse/p_attr.c \
 		./src/parse/p_attr1.c \
 		./src/parse/p_utils.c \
@@ -16,6 +16,15 @@ SRCS = ./src/parse/p_attr.c \
 		./src/main.c  \
 		get_next_line/get_next_line.c \
 		get_next_line/get_next_line_utils.c \
+		./src/execute/exec1.c  \
+		./src/execute/exec2.c \
+		./src/execute/exec3.c \
+		./src/execute/exec4.c \
+		./src/execute/exec5.c \
+		./src/execute/exec6.c \
+		./src/execute/exec7.c \
+		./src/execute/exec8.c \
+		./src/execute/exec9.c \
 
 OBJ = $(SRCS:.c=.o)
 
@@ -23,21 +32,18 @@ OBJ = $(SRCS:.c=.o)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-    # make -C mlx
+	make -C mlx
 	make -C libft
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
-	make clean # kaldirilacak
-	
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
+
 all: $(NAME)
 
 fclean: clean
-	rm -rf libft/*.a
-	rm -rf get_next_line/*.a
+	make -C libft fclean
 	rm -rf $(NAME)
 clean:
-	# make clean -C mlx
+	make clean -C mlx
 	rm -rf $(OBJ)
-	make fclean -C libft
-	rm -rf get_next_line/*.o
+	make -C libft clean
 re: fclean all
 .PHONY: all clean fclean re

@@ -19,7 +19,7 @@ void	get_attr(t_cub *main, char *str)
 
 	i = 0;
 	true = 1;
-	while (str[i] == ' ' || str[i] == '\t' && (str[i] != '\0'))
+	while ((str[i] == ' ' || str[i] == '\t') && (str[i] != '\0'))
 		i++;
 	if ((str[i] == 'F' && str[i + 1] == ' ' ) && ++true)
 		get_attr_floor_color(main, str, FLOOR, i);
