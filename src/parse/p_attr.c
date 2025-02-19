@@ -91,11 +91,15 @@ int	get_loc_attr(t_cub *main,int x,int y)
 		free_attr(main);
 		return (0);
 	}
+	printf("%s\n", main->floor_check);
+	printf("%s\n", main->color_check);
 	return (1);
 }
 
 int	attr_check(t_cub *main,int control,int x,int i)
 {
+	int tmp;
+	tmp = control;
 	if (main->file[x][i] == 'F')
 		control++;
 	else if (main->file[x][i] == 'C' && 
@@ -113,6 +117,8 @@ int	attr_check(t_cub *main,int control,int x,int i)
 	else if ((main->file[x][i] == 'N' && main->file[x][i + 1] == 'O') 
 	&& (main->file[x][i + 2] == ' ' || main->file[x][i + 2] == '\t'))
 		control++;
+	if(tmp != control)
+		main->attr_location = x;
 	return control;
 }
 

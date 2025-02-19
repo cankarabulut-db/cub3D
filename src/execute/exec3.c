@@ -18,7 +18,6 @@ int	ft_exit(void *cub3d)
 
 	game = (t_cub3D *)cub3d;
 	free(game->p->s_line);
-	free(game->p->file_path);
 	free(game->p->east_img);
 	free(game->p->west_img);
 	free(game->p->south_img);

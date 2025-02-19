@@ -14,7 +14,6 @@
 # include "../get_next_line/get_next_line.h"
 # include <X11/keysym.h>
 
-# define CHAR ' '
 # define PI		3.14159265358979323846
 # define EPSILON	1e-3
 # define MAX_RAY_LENGHT	100
@@ -170,12 +169,15 @@ typedef struct s_cub{
 	char	*east_img;
 	int		*floor_int;
 	int		*color_int;
+	char	*floor_check;
+	char    *color_check;
 	int		map_size;
 	int		map_start;
 	int		char_x;
 	int		char_y;
 	char	perspective;
 	char	*s_line;
+	int		attr_location;
 	t_character	ch;
 	t_location	map_size1;
 	t_intptr	entity_counts;

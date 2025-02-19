@@ -106,27 +106,11 @@ int content_control(t_cub *main,int x,int y,int flag)
 
 void player_finder(t_cub *main)
 {
-	int y;
-	int x;
-
-	x = 0;
-	y = 0;
-	while(main->map[y])
-	{
-		x = 0;
-		while(main->map[y][x])
-		{
-			if(player_loc_check(main->map[y][x]) == 1)
-			{
-				main->ch.direction = main->map[y][x];
-				main->ch.p_loc.x = x;
-				main->ch.p_loc.y = y;
-				return ;
-			}
-			x++;
-		}
-		y++;
-	}
+	main->ch.direction = main->perspective;
+	main->ch.p_loc.x = main->char_x - 1;
+	main->ch.p_loc.y = main->char_y - 1;
+	printf("Player Location: %d %d\n",main->ch.p_loc.x,main->ch.p_loc.y);
+	main->map_size1.x = find_the_longest(main->map) + 2;
 }
 
 void	single_line(t_cub *parser)
@@ -134,7 +118,6 @@ void	single_line(t_cub *parser)
 	char	**map = surrounded_map(parser);
 	char 	*temp;
 	int		i;
-	
 	
 	i = 0;
 	while (map[i])
@@ -144,8 +127,8 @@ void	single_line(t_cub *parser)
 		free(temp);
 		i++;
 	}
-	parser->map_size1.y = ft_strplen(parser->map);
-	printf("Map Size: %d\n",parser->map_size1.y);
+	parser->map_size1.y = ft_strplen(parser->map) + 2;
+
 	free_double_ptr(map);
 }
 
@@ -168,8 +151,6 @@ void start_parse(t_cub *main)
 			map_content_walk_free(main);
 		player_finder(main);
 		single_line(main);
-		main->map_size1.y = ft_strplen(main->map);
-		main->map_size1.x = find_the_longest(main->map);
 	}
 	else
 	{

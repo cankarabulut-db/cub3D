@@ -71,11 +71,13 @@ void  get_attr_floor_color(t_cub *main,char *str, char b,int i)
 	tmp = str;
 	if(b == COLOR)
 	{
+		main->color_check = ft_strdup(str);
 		main->color = ft_split(tmp + i + 1,',');
 		attr_get_integer(main,COLOR);
 	}
 	else if(b == FLOOR)
 	{
+		main->floor_check = ft_strdup(str);
 		main->floor = ft_split(tmp + i + 1,',');
 		attr_get_integer(main,FLOOR);
 	}

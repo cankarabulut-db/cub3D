@@ -95,7 +95,9 @@ int check_if_seperated(t_cub *main,int i)
 	while(!ft_map_attr_finder(main->file[i], "01N", 0, 0))
 		i++;
 	if(!main->file[i])
-		return (0); // free
+		return (0); 
+	if(i < main->attr_location)
+		return (0);
 	main->map_start = i;
 	while(main->file[i])
 	{

@@ -1,5 +1,27 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/nkarabul/Desktop/mycub'
-make: 'cub3D' is up to date.
+gcc -Wall -Werror -Wextra -g -c src/parse/p_attr.c -o src/parse/p_attr.o
+gcc -Wall -Werror -Wextra -g -c src/parse/p_attr1.c -o src/parse/p_attr1.o
+gcc -Wall -Werror -Wextra -g -c src/parse/p_utils.c -o src/parse/p_utils.o
+gcc -Wall -Werror -Wextra -g -c src/parse/p_utils1.c -o src/parse/p_utils1.o
+gcc -Wall -Werror -Wextra -g -c src/parse/p_file.c -o src/parse/p_file.o
+gcc -Wall -Werror -Wextra -g -c src/parse/p_main.c -o src/parse/p_main.o
+gcc -Wall -Werror -Wextra -g -c src/parse/p_map.c -o src/parse/p_map.o
+gcc -Wall -Werror -Wextra -g -c src/parse/p_multimap.c -o src/parse/p_multimap.o
+gcc -Wall -Werror -Wextra -g -c src/main.c -o src/main.o
+gcc -Wall -Werror -Wextra -g -c get_next_line/get_next_line.c -o get_next_line/get_next_line.o
+gcc -Wall -Werror -Wextra -g -c get_next_line/get_next_line_utils.c -o get_next_line/get_next_line_utils.o
+gcc -Wall -Werror -Wextra -g -c src/execute/exec1.c -o src/execute/exec1.o
+gcc -Wall -Werror -Wextra -g -c src/execute/exec2.c -o src/execute/exec2.o
+gcc -Wall -Werror -Wextra -g -c src/execute/exec3.c -o src/execute/exec3.o
+gcc -Wall -Werror -Wextra -g -c src/execute/exec4.c -o src/execute/exec4.o
+gcc -Wall -Werror -Wextra -g -c src/execute/exec5.c -o src/execute/exec5.o
+gcc -Wall -Werror -Wextra -g -c src/execute/exec6.c -o src/execute/exec6.o
+gcc -Wall -Werror -Wextra -g -c src/execute/exec7.c -o src/execute/exec7.o
+gcc -Wall -Werror -Wextra -g -c src/execute/exec8.c -o src/execute/exec8.o
+gcc -Wall -Werror -Wextra -g -c src/execute/exec9.c -o src/execute/exec9.o
+make -C mlx
+make -C libft
+gcc -Wall -Werror -Wextra -g ./src/parse/p_attr.o ./src/parse/p_attr1.o ./src/parse/p_utils.o ./src/parse/p_utils1.o ./src/parse/p_file.o ./src/parse/p_main.o ./src/parse/p_map.o ./src/parse/p_multimap.o ./src/main.o get_next_line/get_next_line.o get_next_line/get_next_line_utils.o ./src/execute/exec1.o ./src/execute/exec2.o ./src/execute/exec3.o ./src/execute/exec4.o ./src/execute/exec5.o ./src/execute/exec6.o ./src/execute/exec7.o ./src/execute/exec8.o ./src/execute/exec9.o libft/libft.a -Lmlx -lmlx -lXext -lX11 -lm -o cub3D
 make: Leaving directory '/home/nkarabul/Desktop/mycub'
  

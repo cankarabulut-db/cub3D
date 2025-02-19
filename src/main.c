@@ -109,7 +109,6 @@ int start_cub(char **av)
 		exit(1);
 	}
 	start_parse(&main);
-
 	init_all(&cub3d, &main);
 	mlx_hook(cub3d.mlx.win.win, \
 		KeyPress, (1 << 0), arrange_key_press, &cub3d);

@@ -101,6 +101,7 @@ int side_by_side_check(t_cub *main)
 	new_map = surrounded_map(main);
 	find_the_player_loc(main,new_map);
 	flood_fill(new_map,main->char_x,main->char_y);
+	main->map_size1.y = ft_strplen(new_map) + 1;
 	if(!check_multimap(new_map))
 	{
 		free_double_ptr(new_map);

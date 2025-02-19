@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Feb 18 15:07:01 2025
+# Make data base, printed on Wed Feb 19 16:43:12 2025
 
 # Variables
 
@@ -16,8 +16,6 @@ OBJ = $(SRCS:.c=.o)
 GDK_BACKEND = x11
 # environment
 LC_ALL = C
-# environment
-NO_AT_BRIDGE = 1
 # environment
 SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
@@ -55,7 +53,7 @@ OLDPWD = /home/nkarabul
 # environment
 VSCODE_CODE_CACHE_PATH = /home/nkarabul/.config/Code/CachedData/cd4ee3b1c348a13bafd8f9ad8060705f6d4b9cba
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session8
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session11
 # makefile (from 'Makefile', line 2)
 LIBFT = libft/libft.a
 # environment
@@ -67,7 +65,7 @@ XAUTHORITY = /home/nkarabul/.Xauthority
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.98
+GNOME_TERMINAL_SERVICE = :1.287
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -95,15 +93,15 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 799872
+VSCODE_PID = 700492
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_157558_k9FnjG
+KRB5CCNAME = FILE:/tmp/krb5cc_157558_PrtbiA
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/k1m34s11.42istanbul.com.tr:@/tmp/.ICE-unix/797714,unix/k1m34s11.42istanbul.com.tr:/tmp/.ICE-unix/797714
+SESSION_MANAGER = local/k1m31s01.42istanbul.com.tr:@/tmp/.ICE-unix/656488,unix/k1m31s01.42istanbul.com.tr:/tmp/.ICE-unix/656488
 # automatic
 *F = $(notdir $*)
 # environment
@@ -127,7 +125,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/b97a96d5_09b3_4e26_9555_4fd50ddd812c
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/40936469_2fc2_44ba_9fde_111986a22a2e
 # environment
 MAKELEVEL := 0
 # default
@@ -173,7 +171,7 @@ LOGNAME = nkarabul
 # makefile
 .DEFAULT_GOAL := cub3D
 # environment
-SYSTEMD_EXEC_PID = 797744
+SYSTEMD_EXEC_PID = 656513
 # environment
 DISPLAY = :0
 # environment
@@ -241,7 +239,7 @@ GDMSESSION = ubuntu
 # environment
 LC_IDENTIFICATION = tr_TR.UTF-8
 # variable set hash-table stats:
-# Load=115/1024=11%, Rehash=0, Collisions=12/149=8%
+# Load=114/1024=11%, Rehash=0, Collisions=12/148=8%
 
 # Pattern-specific Variable Values
 
@@ -252,10 +250,10 @@ LC_IDENTIFICATION = tr_TR.UTF-8
 # get_next_line (device 2064, inode 4301702): 8 files, no impossibilities so far.
 # src/execute (device 2064, inode 12870891): 11 files, no impossibilities so far.
 # src (device 2064, inode 8563653): 4 files, no impossibilities so far.
-# . (device 2064, inode 268443): 12 files, no impossibilities.
+# . (device 2064, inode 268443): 14 files, no impossibilities.
 # src/parse (device 2064, inode 268444): 10 files, no impossibilities so far.
 
-# 45 files, no impossibilities in 5 directories.
+# 47 files, no impossibilities in 5 directories.
 
 # Implicit Rules
 
@@ -269,7 +267,7 @@ LC_IDENTIFICATION = tr_TR.UTF-8
 src/parse/p_map.o: src/parse/p_map.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/parse/p_map'
-#  Last modified 2025-02-18 14:51:49.060038706
+#  Last modified 2025-02-19 14:54:03.975940176
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -278,7 +276,7 @@ src/parse/p_map.o: src/parse/p_map.c
 src/execute/exec1.o: src/execute/exec1.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/execute/exec1'
-#  Last modified 2025-02-18 14:51:49.188043099
+#  Last modified 2025-02-19 14:54:04.095944276
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -292,6 +290,7 @@ src/execute/exec7.c:
 #  Successfully updated.
 
 # Not a target:
+ 
 src/parse/p_utils.c:
 #  Implicit rule search has been done.
 #  Last modified 2025-02-16 13:31:16.326645
@@ -322,14 +321,14 @@ Makefile:
 # Not a target:
 src/parse/p_multimap.c:
 #  Implicit rule search has been done.
-#  Last modified 2025-02-16 13:31:16.326645
+#  Last modified 2025-02-18 19:47:08.428901123
 #  File has been updated.
 #  Successfully updated.
 
 src/execute/exec6.o: src/execute/exec6.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/execute/exec6'
-#  Last modified 2025-02-18 14:53:01.08251442
+#  Last modified 2025-02-19 14:54:04.227948784
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -339,7 +338,6 @@ src/execute/exec6.o: src/execute/exec6.c
 src/execute/exec8.c:
 #  Implicit rule search has been done.
 #  Last modified 2025-02-08 19:46:32
- 
 #  File has been updated.
 #  Successfully updated.
 
@@ -356,14 +354,14 @@ clean:
 # Not a target:
 src/parse/p_attr.c:
 #  Implicit rule search has been done.
-#  Last modified 2025-02-18 14:49:34.491436003
+#  Last modified 2025-02-18 15:17:14.03321519
 #  File has been updated.
 #  Successfully updated.
 
 src/execute/exec4.o: src/execute/exec4.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/execute/exec4'
-#  Last modified 2025-02-18 14:53:01.026512491
+#  Last modified 2025-02-19 14:54:04.175947009
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -372,7 +370,7 @@ src/execute/exec4.o: src/execute/exec4.c
 src/execute/exec7.o: src/execute/exec7.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/execute/exec7'
-#  Last modified 2025-02-18 14:53:01.110515384
+#  Last modified 2025-02-19 14:54:04.255949741
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -381,7 +379,7 @@ src/execute/exec7.o: src/execute/exec7.c
 # Not a target:
 src/execute/exec4.c:
 #  Implicit rule search has been done.
-#  Last modified 2025-02-08 19:46:32
+#  Last modified 2025-02-19 13:25:10.867809933
 #  File has been updated.
 #  Successfully updated.
 
@@ -395,7 +393,7 @@ src/execute/exec5.c:
 # Not a target:
 src/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2025-02-18 14:59:18.239575825
+#  Last modified 2025-02-19 14:04:41.803675847
 #  File has been updated.
 #  Successfully updated.
 
@@ -408,7 +406,7 @@ re: fclean all
 src/execute/exec5.o: src/execute/exec5.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/execute/exec5'
-#  Last modified 2025-02-18 14:53:01.054513456
+#  Last modified 2025-02-19 14:54:04.199947828
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -417,7 +415,7 @@ src/execute/exec5.o: src/execute/exec5.c
 src/parse/p_utils1.o: src/parse/p_utils1.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/parse/p_utils1'
-#  Last modified 2025-02-18 14:49:36.059489439
+#  Last modified 2025-02-19 14:54:03.891937307
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -433,7 +431,7 @@ src/parse/p_attr1.c:
 get_next_line/get_next_line.o: get_next_line/get_next_line.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'get_next_line/get_next_line'
-#  Last modified 2025-02-18 14:51:49.144041589
+#  Last modified 2025-02-19 14:54:04.051942772
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -442,7 +440,7 @@ get_next_line/get_next_line.o: get_next_line/get_next_line.c
 src/main.o: src/main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/main'
-#  Last modified 2025-02-18 14:59:20.027638036
+#  Last modified 2025-02-19 14:54:04.035942225
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -457,7 +455,7 @@ src/main.o: src/main.c
 src/parse/p_utils.o: src/parse/p_utils.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/parse/p_utils'
-#  Last modified 2025-02-18 14:49:36.031488484
+#  Last modified 2025-02-19 14:54:03.867936486
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -490,7 +488,7 @@ src/execute/exec2.c:
 src/parse/p_attr1.o: src/parse/p_attr1.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/parse/p_attr1'
-#  Last modified 2025-02-18 14:49:36.00348753
+#  Last modified 2025-02-19 14:54:03.83993553
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -506,7 +504,7 @@ src/parse/p_utils1.c:
 get_next_line/get_next_line_utils.o: get_next_line/get_next_line_utils.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'get_next_line/get_next_line_utils'
-#  Last modified 2025-02-18 14:51:49.160042138
+#  Last modified 2025-02-19 14:54:04.067943319
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -515,7 +513,7 @@ get_next_line/get_next_line_utils.o: get_next_line/get_next_line_utils.c
 src/parse/p_main.o: src/parse/p_main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/parse/p_main'
-#  Last modified 2025-02-18 14:59:19.995636922
+#  Last modified 2025-02-19 14:54:03.951939356
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -524,7 +522,7 @@ src/parse/p_main.o: src/parse/p_main.c
 src/parse/p_file.o: src/parse/p_file.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/parse/p_file'
-#  Last modified 2025-02-18 14:49:36.095490666
+#  Last modified 2025-02-19 14:54:03.919938263
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -533,7 +531,7 @@ src/parse/p_file.o: src/parse/p_file.c
 src/execute/exec8.o: src/execute/exec8.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/execute/exec8'
-#  Last modified 2025-02-18 14:53:01.138516347
+#  Last modified 2025-02-19 14:54:04.283950697
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -542,7 +540,7 @@ src/execute/exec8.o: src/execute/exec8.c
 src/execute/exec3.o: src/execute/exec3.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/execute/exec3'
-#  Last modified 2025-02-18 14:53:19.043132945
+#  Last modified 2025-02-19 14:54:04.147946051
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -551,7 +549,7 @@ src/execute/exec3.o: src/execute/exec3.c
 src/execute/exec2.o: src/execute/exec2.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/execute/exec2'
-#  Last modified 2025-02-18 14:51:49.21604406
+#  Last modified 2025-02-19 14:54:04.119945095
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -567,7 +565,7 @@ src/execute/exec9.c:
 src/parse/p_attr.o: src/parse/p_attr.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/parse/p_attr'
-#  Last modified 2025-02-18 14:49:35.983486849
+#  Last modified 2025-02-19 14:54:03.819934847
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -575,7 +573,7 @@ src/parse/p_attr.o: src/parse/p_attr.c
 
 cub3D: src/parse/p_attr.o src/parse/p_attr1.o src/parse/p_utils.o src/parse/p_utils1.o src/parse/p_file.o src/parse/p_main.o src/parse/p_map.o src/parse/p_multimap.o src/main.o get_next_line/get_next_line.o get_next_line/get_next_line_utils.o src/execute/exec1.o src/execute/exec2.o src/execute/exec3.o src/execute/exec4.o src/execute/exec5.o src/execute/exec6.o src/execute/exec7.o src/execute/exec8.o src/execute/exec9.o
 #  Implicit rule search has not been done.
-#  Last modified 2025-02-18 15:06:01.649652943
+#  Last modified 2025-02-19 14:54:06.164014925
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 35):
@@ -586,14 +584,14 @@ cub3D: src/parse/p_attr.o src/parse/p_attr1.o src/parse/p_utils.o src/parse/p_ut
 # Not a target:
 src/parse/p_main.c:
 #  Implicit rule search has been done.
-#  Last modified 2025-02-18 14:59:14.063430535
+#  Last modified 2025-02-19 13:52:35.10933385
 #  File has been updated.
 #  Successfully updated.
 
 src/parse/p_multimap.o: src/parse/p_multimap.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/parse/p_multimap'
-#  Last modified 2025-02-18 14:51:49.088039667
+#  Last modified 2025-02-19 14:54:04.003941133
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -621,7 +619,7 @@ src/execute/exec6.c:
 src/execute/exec9.o: src/execute/exec9.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/execute/exec9'
-#  Last modified 2025-02-18 14:53:19.067133772
+#  Last modified 2025-02-19 14:54:04.307951518
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -630,22 +628,22 @@ src/execute/exec9.o: src/execute/exec9.c
 # Not a target:
 get_next_line/get_next_line.c:
 #  Implicit rule search has been done.
- 
 #  Last modified 2025-02-16 13:31:16.322645
 #  File has been updated.
 #  Successfully updated.
 
+ 
 # Not a target:
 src/execute/exec1.c:
 #  Implicit rule search has been done.
-#  Last modified 2025-02-18 14:35:58.966564971
+#  Last modified 2025-02-19 13:47:52.147624578
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/execute/exec3.c:
 #  Implicit rule search has been done.
-#  Last modified 2025-02-18 14:53:07.018718801
+#  Last modified 2025-02-19 14:53:59.519787967
 #  File has been updated.
 #  Successfully updated.
 
@@ -657,12 +655,12 @@ src/execute/exec3.c:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 109 / storage = 1656 B / avg = 15 B
-# current buf: size = 8162 B / used = 1656 B / count = 109 / avg = 15 B
+# strcache buffers: 1 (0) / strings = 111 / storage = 1670 B / avg = 15 B
+# current buf: size = 8162 B / used = 1670 B / count = 111 / avg = 15 B
 
-# strcache performance: lookups = 160 / hit rate = 31%
+# strcache performance: lookups = 162 / hit rate = 31%
 # hash-table stats:
-# Load=109/8192=1%, Rehash=0, Collisions=0/160=0%
-# Finished Make data base on Tue Feb 18 15:07:01 2025
+# Load=111/8192=1%, Rehash=0, Collisions=0/162=0%
+# Finished Make data base on Wed Feb 19 16:43:12 2025
 
  
