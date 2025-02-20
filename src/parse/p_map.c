@@ -6,7 +6,7 @@
 /*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:37:19 by nkarabul          #+#    #+#             */
-/*   Updated: 2025/02/20 17:34:38 by hayigit          ###   ########.fr       */
+/*   Updated: 2025/02/20 18:19:16 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ void	get_attr_floor_color(t_cub *main, char *str, char b, int i)
 	char	*tmp;
 
 	tmp = str;
-	if (how_much_char(str,',') != 2)
-		error_write_nfree("Color yapılandırması yanlış"); 
+	if (how_much_char(str, ',') != 2)
+		error_write_nfree("Color yapılandırması yanlış");
 	if (b == COLOR)
 	{
 		main->color_check = ft_strdup(str);

@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_attr1.c                                          :+:      :+:    :+:   */
+/*   functions.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 12:37:27 by nkarabul          #+#    #+#             */
-/*   Updated: 2025/02/20 18:18:52 by hayigit          ###   ########.fr       */
+/*   Created: 2025/02/20 18:04:08 by hayigit           #+#    #+#             */
+/*   Updated: 2025/02/20 18:09:00 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	free_color_floor(int *color_floor)
+t_vec2	g_south(void)
 {
-	if (color_floor)
-		free(color_floor);
-	color_floor = NULL;
+	return ((t_vec2){.x = 0, .y = 1});
 }
 
-int	how_much_char(char *str, char c)
+t_vec2	g_north(void)
 {
-	int	count;
-	int	i;
+	return ((t_vec2){.x = 0, .y = -1});
+}
 
-	i = 0;
-	count = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-			count++;
-		i++;
-	}
-	return (count);
+t_vec2	g_east(void)
+{
+	return ((t_vec2){.x = -1, .y = 0});
+}
+
+t_vec2	g_west(void)
+{
+	return ((t_vec2){.x = 1, .y = 0});
 }

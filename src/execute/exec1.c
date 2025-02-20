@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgokcu <sgokcu@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 17:29:33 by erkoc             #+#    #+#             */
-/*   Updated: 2025/02/08 14:58:54 by sgokcu           ###   ########.fr       */
+/*   Updated: 2025/02/20 18:10:18 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ void	init_player(t_cub3D *cub3d)
 	cub3d->player.pos.x = (float)cub3d->p->ch.p_loc.x + 1.5;
 	cub3d->player.pos.y = (float)cub3d->p->ch.p_loc.y + 1.5;
 	if (cub3d->p->ch.direction == 'S')
-		cub3d->player.dir = g_south;
+		cub3d->player.dir = g_south();
 	if (cub3d->p->ch.direction == 'N')
-		cub3d->player.dir = g_north;
+		cub3d->player.dir = g_north();
 	if (cub3d->p->ch.direction == 'E')
-		cub3d->player.dir = g_east;
+		cub3d->player.dir = g_east();
 	if (cub3d->p->ch.direction == 'W')
-		cub3d->player.dir = g_west;
+		cub3d->player.dir = g_west();
 	cub3d->player.move_speed = 0.05;
 	cub3d->player.camera_speed = 1;
 }

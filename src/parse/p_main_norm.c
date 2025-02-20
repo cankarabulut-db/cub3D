@@ -6,7 +6,7 @@
 /*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:50:30 by hayigit           #+#    #+#             */
-/*   Updated: 2025/02/20 15:53:04 by hayigit          ###   ########.fr       */
+/*   Updated: 2025/02/20 18:19:29 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,3 @@ void	map_content_walk_free(t_cub *main)
 	ft_putendl_fd("Map Error", 2);
 	exit(1);
 }
-

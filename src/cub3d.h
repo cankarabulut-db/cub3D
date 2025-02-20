@@ -6,47 +6,47 @@
 /*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:37:01 by hayigit           #+#    #+#             */
-/*   Updated: 2025/02/20 17:32:50 by hayigit          ###   ########.fr       */
+/*   Updated: 2025/02/20 18:23:38 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
-	# define CUB3D_H
+# define CUB3D_H
 
-	# define PARSE_WALL '*'
-	# define FLOOR 4
-	# define COLOR 5
-	# define EMPTY 1
+# define PARSE_WALL '*'
+# define FLOOR 4
+# define COLOR 5
+# define EMPTY 1
 
-	# include <fcntl.h>
-	# include <math.h>
-	# include <stdio.h>
-	# include "../mlx/mlx.h"
-	# include "../libft/libft.h"
-	# include "../get_next_line/get_next_line.h"
-	# include <X11/keysym.h>
+# include <fcntl.h>
+# include <math.h>
+# include <stdio.h>
+# include "../mlx/mlx.h"
+# include "../libft/libft.h"
+# include "../get_next_line/get_next_line.h"
+# include <X11/keysym.h>
 
-	# define PI		3.14159265358979323846
-	# define EPSILON	1e-3
-	# define MAX_RAY_LENGHT	100
-	# define PLAYER_SIZE	0.2
-	# define ESC_KEY 0xff1b
-	# define X_KEY 0x0078
-	# define Z_KEY 0x007a
-	# define O_KEY 0x006f
-	# define Q_KEY 0x0071 
-	# define W_KEY 0x0077
-	# define E_KEY 0x0065
-	# define R_KEY 0x0072
-	# define A_KEY 0x0061
-	# define S_KEY 0x0073
-	# define D_KEY 0x0064
-	# define F_KEY 0x0066
-	# define P_KEY 0x0070
-	# define RIGHT_KEY 0xff53
-	# define LEFT_KEY 0xff51
-	# define UP_KEY 0xff52
-	# define DOWN_KEY 0xff54
+# define PI		3.14159265358979323846
+# define EPSILON	1e-3
+# define MAX_RAY_LENGHT	100
+# define PLAYER_SIZE	0.2
+# define ESC_KEY 0xff1b
+# define X_KEY 0x0078
+# define Z_KEY 0x007a
+# define O_KEY 0x006f
+# define Q_KEY 0x0071 
+# define W_KEY 0x0077
+# define E_KEY 0x0065
+# define R_KEY 0x0072
+# define A_KEY 0x0061
+# define S_KEY 0x0073
+# define D_KEY 0x0064
+# define F_KEY 0x0066
+# define P_KEY 0x0070
+# define RIGHT_KEY 0xff53
+# define LEFT_KEY 0xff51
+# define UP_KEY 0xff52
+# define DOWN_KEY 0xff54
 
 typedef struct s_tmp{
 	char	*floor;
@@ -169,32 +169,31 @@ typedef struct s_raycast
 }	t_raycast;
 
 typedef struct s_cub{
-	char	**file;
-	char	*file_path;
-	char	**map;
-	char	**multiple_map;
-	char	**floor;
-	char	**color;
-	char	*north_img;
-	char	*west_img;
-	char	*south_img;
-	char	*east_img;
-	int		*floor_int;
-	int		*color_int;
-	char	*floor_check;
-	char    *color_check;
-	int		map_size;
-	int		map_start;
-	int		char_x;
-	int		char_y;
-	char	perspective;
-	char	*s_line;
-	int		attr_location;
+	char		**file;
+	char		*file_path;
+	char		**map;
+	char		**multiple_map;
+	char		**floor;
+	char		**color;
+	char		*north_img;
+	char		*west_img;
+	char		*south_img;
+	char		*east_img;
+	int			*floor_int;
+	int			*color_int;
+	char		*floor_check;
+	char		*color_check;
+	int			map_size;
+	int			map_start;
+	int			char_x;
+	int			char_y;
+	char		perspective;
+	char		*s_line;
+	int			attr_location;
 	t_character	ch;
 	t_location	map_size1;
 	t_intptr	entity_counts;
 }				t_cub;
-
 
 typedef struct s_tile_map
 {
@@ -251,7 +250,7 @@ typedef struct s_cub3D
 	t_color			ceiling;
 	t_player		player;
 	t_tile_map		map;
-	t_cub	*p;
+	t_cub			*p;
 }	t_cub3D;
 
 struct s_draw_hlpr
@@ -324,69 +323,60 @@ t_bool			ft_vec2_equ(t_vec2 vec1, t_vec2 vec2);
 float			ft_vec2_dist(t_vec2 point1, t_vec2 point2);
 t_vec2			ft_vec2_div(t_vec2 vec, float div);
 
-static const t_vec2		g_south = (t_vec2){.x = 0, .y = 1};
-static const t_vec2		g_north = (t_vec2){.x = 0, .y = -1};
-static const t_vec2		g_east = (t_vec2){.x = -1, .y = 0};
-static const t_vec2		g_west = (t_vec2){.x = 1, .y = 0};
-static const t_vec2		g_vec2_null = (t_vec2){.x = 0, .y = 0};
-static const t_vec2		g_vec2_i = (t_vec2){.x = 1, .y = 0};
-static const t_vec2		g_vec2_j = (t_vec2){.x = 0, .y = 1};
+t_vec2			g_south(void);
+t_vec2			g_north(void);
+t_vec2			g_east(void);
+t_vec2			g_west(void);
+t_vec2			g_vec2_null(void);
+t_vec2			g_vec2_i(void);
+t_vec2			g_vec2_j(void);
 
-
-
-// EXECUTE
-
-
-
-
-
-
-int side_by_side_check(t_cub *main);
-char **surrounded_map(t_cub *main);
-int check_multimap(char **map);
-void string_filler(char *str,char *map,int longest);
-void fill_string(char *wall_map,int longest);
-int extension_checker(char *str);
-int	extension_checker_norm(t_cub *main);
-int walkability_check(t_cub *main,int x,int y);
-int ft_check(char **sur, int y,int x);
-void start_parse(t_cub *main);
-int player_loc_check(char a);
-int map_size(t_cub *main, int i);
-void free_color_floor(int *color_floor);
-int get_file(t_cub *main,int i);
-int start_cub(char **av);
-int ft_strplen(char **str);
-char **ft_strddup(char **str,int x);
-int	free_double_ptr(char **str);
-void flood_fill(char **map, int x, int y);
-void free_attr(t_cub *main);
-int find_the_player_loc(t_cub *main,char **str);
-int	ft_strcmp(const char *s1, const char *s2);
-int ft_exist(char *str,char a);
-void get_attr(t_cub *main,char *str);
-int get_loc_attr(t_cub *main,int x,int y);
-int ft_map_attr_finder(char *str,char *tb_found,int i,int j);
-int check_if_seperated(t_cub *main,int i);
-int find_the_longest(char **str);
-int fill_control(char *str,char a,int i);
-void error_write_nfree(char *str);
-void s_init(t_cub *main);
-int get_map(t_cub *main,int i);
-void make_empty(char *str);
-void get_attr_floor_color(t_cub *main,char *str, char b,int i);
-int content_control(t_cub *main,int x,int y,int flag);
-int attr_digitcheck(char **str);
-void attr_get_integer(t_cub *main,int type);
-int get_attr_count(t_cub *main,int x);
-int start_cub(char **av);
-int ft_alpha_check(char *str);
-int attribute_space_check_norm(t_cub *main);
-void	map_content_walk_free(t_cub *main);
-void	player_finder(t_cub *main);
-void	single_line(t_cub *parser);
-int	file_validation(char **file);
-void	wall_drawing(t_cub3D *cub3d);
-int how_much_char(char *str,char c);
+int				side_by_side_check(t_cub *main);
+char			**surrounded_map(t_cub *main);
+int				check_multimap(char **map);
+void			string_filler(char *str, char *map, int longest);
+void			fill_string(char *wall_map, int longest);
+int				extension_checker(char *str);
+int				extension_checker_norm(t_cub *main);
+int				walkability_check(t_cub *main, int x, int y);
+int				ft_check(char **sur, int y, int x);
+void			start_parse(t_cub *main);
+int				player_loc_check(char a);
+int				map_size(t_cub *main, int i);
+void			free_color_floor(int *color_floor);
+int				get_file(t_cub *main, int i);
+int				start_cub(char **av);
+int				ft_strplen(char **str);
+char			**ft_strddup(char **str, int x);
+int				free_double_ptr(char **str);
+void			flood_fill(char **map, int x, int y);
+void			free_attr(t_cub *main);
+int				find_the_player_loc(t_cub *main, char **str);
+int				ft_strcmp(const char *s1, const char *s2);
+int				ft_exist(char *str, char a);
+void			get_attr(t_cub *main, char *str);
+int				get_loc_attr(t_cub *main, int x, int y);
+int				ft_map_attr_finder(char *str, char *tb_found, int i, int j);
+int				check_if_seperated(t_cub *main, int i);
+int				find_the_longest(char **str);
+int				fill_control(char *str, char a, int i);
+void			error_write_nfree(char *str);
+void			s_init(t_cub *main);
+int				get_map(t_cub *main, int i);
+void			make_empty(char *str);
+void			get_attr_floor_color(t_cub *main, char *str, char b, int i);
+int				content_control(t_cub *main, int x, int y, int flag);
+int				attr_digitcheck(char **str);
+void			attr_get_integer(t_cub *main, int type);
+int				get_attr_count(t_cub *main, int x);
+int				start_cub(char **av);
+int				ft_alpha_check(char *str);
+int				attribute_space_check_norm(t_cub *main);
+void			map_content_walk_free(t_cub *main);
+void			player_finder(t_cub *main);
+void			single_line(t_cub *parser);
+int				file_validation(char **file);
+void			wall_drawing(t_cub3D *cub3d);
+int				how_much_char(char *str, char c);
 
 #endif

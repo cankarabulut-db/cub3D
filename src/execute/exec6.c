@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec6.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgokcu <sgokcu@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 17:29:33 by erkoc             #+#    #+#             */
-/*   Updated: 2025/02/07 15:40:41 by sgokcu           ###   ########.fr       */
+/*   Updated: 2025/02/20 18:11:24 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_vec2	hit_vert(t_cub3D *cub3d, t_vec2 start, t_vec2 dir, float *dist)
 		}
 		ray.x += ray.step;
 	}
-	return (g_vec2_null);
+	return (g_vec2_null());
 }
 
 void	hori_hit_regulator(t_raycast *ray, t_vec2 start, t_vec2 dir)
@@ -69,7 +69,7 @@ t_vec2	hit_hori(t_cub3D *cub3d, t_vec2 start, t_vec2 dir, float *dist)
 				return (ray.hit.pos);
 		ray.y += ray.step;
 	}
-	return (g_vec2_null);
+	return (g_vec2_null());
 }
 
 void	raycast(t_cub3D *cub3d, t_vec2 start, t_vec2 dir, t_hit *out)

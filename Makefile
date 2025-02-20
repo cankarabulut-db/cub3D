@@ -19,6 +19,8 @@ SRCS = ./src/parse/p_attr.c \
 		./src/main.c  \
 		get_next_line/get_next_line.c \
 		get_next_line/get_next_line_utils.c \
+		./src/execute/functions.c \
+		./src/execute/functions2.c \
 		./src/execute/exec1.c  \
 		./src/execute/exec2.c \
 		./src/execute/exec3.c \

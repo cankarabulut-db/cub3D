@@ -6,7 +6,7 @@
 /*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:21:46 by hayigit           #+#    #+#             */
-/*   Updated: 2025/02/20 16:25:48 by hayigit          ###   ########.fr       */
+/*   Updated: 2025/02/20 18:11:01 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	wall_drawing(t_cub3D *cub3d)
 	i = 0;
 	while (i < HEIGHT)
 	{
-		if (ft_vec2_equ(cub3d->collisions[i].pos, g_vec2_null))
+		if (ft_vec2_equ(cub3d->collisions[i].pos, g_vec2_null()))
 		{
 			i++;
 			continue ;
