@@ -2,6 +2,7 @@
 	"makefile.extensionOutputFolder": "./.vscode",
 	"files.associations": {
 		"random": "c",
-		"cmath": "c"
+		"cmath": "c",
+		"cub3d.h": "c"
 	}
 }

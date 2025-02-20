@@ -3,33 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   p_map.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nkarabul <nkarabul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:37:19 by nkarabul          #+#    #+#             */
-/*   Updated: 2025/02/16 18:31:27 by nkarabul         ###   ########.fr       */
+/*   Updated: 2025/02/20 17:34:38 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-int player_loc_check(char a)
+
+int	player_loc_check(char a)
 {
-	if(a == 'N' || a == 'W' || a == 'S' || a == 'E')
+	if (a == 'N' || a == 'W' || a == 'S' || a == 'E')
 		return (1);
 	return (0);
 }
-int find_the_player_loc(t_cub *main,char **str)
+
+int	find_the_player_loc(t_cub *main, char **str)
 {
-	int y;
-	int x;
+	int	y;
+	int	x;
 
 	x = 0;
 	y = 0;
-	while(str[y])
+	while (str[y])
 	{
 		x = 0;
-		while(str[y][x])
+		while (str[y][x])
 		{
-			if(player_loc_check(str[y][x]) == 1)
+			if (player_loc_check(str[y][x]) == 1)
 			{
 				main->char_x = x;
 				main->char_y = y;
@@ -43,7 +45,7 @@ int find_the_player_loc(t_cub *main,char **str)
 	return (0);
 }
 
-void s_init(t_cub *main)
+void	s_init(t_cub *main)
 {
 	main->file = NULL;
 	main->file_path = NULL;
@@ -64,73 +66,46 @@ void s_init(t_cub *main)
 	main->perspective = 0;
 	main->s_line = ft_strdup("");
 }
-void  get_attr_floor_color(t_cub *main,char *str, char b,int i)
+
+void	get_attr_floor_color(t_cub *main, char *str, char b, int i)
 {
-	char *tmp;
+	char	*tmp;
 
 	tmp = str;
-	if(b == COLOR)
+	if (how_much_char(str,',') != 2)
+		error_write_nfree("Color yapılandırması yanlış"); 
+	if (b == COLOR)
 	{
 		main->color_check = ft_strdup(str);
-		main->color = ft_split(tmp + i + 1,',');
-		attr_get_integer(main,COLOR);
+		main->color = ft_split(tmp + i + 1, ',');
+		attr_get_integer(main, COLOR);
 	}
-	else if(b == FLOOR)
+	else if (b == FLOOR)
 	{
 		main->floor_check = ft_strdup(str);
-		main->floor = ft_split(tmp + i + 1,',');
-		attr_get_integer(main,FLOOR);
+		main->floor = ft_split(tmp + i + 1, ',');
+		attr_get_integer(main, FLOOR);
 	}
 }
-int file_validation(char **file)
+
+int	file_validation(char **file)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	x = 0;
-	while(file[y])
+	while (file[y])
 	{
 		x = 0;
-		while(file[y][x])
+		while (file[y][x])
 		{
-			if(file[y][x] > 32 && file[y][x] < 127)
+			if (file[y][x] > 32 && file[y][x] < 127)
 				return (0);
 			else
 				x++;
 		}
 		y++;
 	}
-	return (1);
-}
-int get_map(t_cub *main,int i)
-{
-	main->map = malloc(sizeof(char *) * (main->map_size + 1));
-	if(!main->map)
-	{
-		free_double_ptr(main->file);
-		return (0);
-	}
-	while(main->map_size + 1 > i)
-	{
-		if(ft_map_attr_finder(main->file[main->map_start], "01", 0, 0) == 1)
-		{
-			main->map[i] = ft_strtrim(main->file[main->map_start],"\n");
-			make_empty(main->file[main->map_start]);
-			i++;
-			main->map_start++;
-		}
-		else
-		{
-			main->map[i] = 0;
-			break;
-		}
-	}
-	if(!file_validation(main->file))
-	{
-		free_double_ptr(main->file);
-		return (0);
-	}
-	free_double_ptr(main->file);
 	return (1);
 }

@@ -3,59 +3,63 @@
 /*                                                        :::      ::::::::   */
 /*   p_file.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nkarabul <nkarabul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 20:26:13 by nkarabul          #+#    #+#             */
-/*   Updated: 2025/02/13 12:37:26 by nkarabul         ###   ########.fr       */
+/*   Updated: 2025/02/20 15:42:12 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int file_check(char *str)
+int	file_check(char *str)
 {
-	int i = 0;
-	while(str[i])
+	int	i;
+
+	i = 0;
+	while (str[i])
 		i++;
 	i--;
-	if(str[i] == 'b' && str[i-1] == 'u' && str[i-2] == 'c' && str[i-3] == '.')
+	if (str[i] == 'b' && str[i - 1] == 'u'
+		&& str[i - 2] == 'c' && str[i - 3] == '.')
 		return (1);
 	return (-1);
 }
-int map_size(t_cub *main, int i)
+
+int	map_size(t_cub *main, int i)
 {
-	char *str;
-	int fd;
-	
-	if(file_check(main->file_path) == -1)
+	char	*str;
+	int		fd;
+
+	if (file_check(main->file_path) == -1)
 		return (0);
-	fd = open(main->file_path,O_RDWR,0644);
-	if(fd == -1)
+	fd = open(main->file_path, O_RDWR, 0644);
+	if (fd == -1)
 		return (0);
-	while(1)
+	while (1)
 	{
 		str = get_next_line(fd);
-		if(str == NULL)
-			break;
+		if (str == NULL)
+			break ;
 		else
 			i++;
 		free(str);
 	}
 	close(fd);
 	main->map_size = i;
-	if(i == 0)
+	if (i == 0)
 		return (0);
 	return (1);
 }
 
-void empty_replacer(char *str)
+void	empty_replacer(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
-		if(str[i] >= '\t' && str[i] <= 'r')
+		if (str[i] >= '\t' && str[i] <= 'r')
 		{
 			str[i] = ' ';
 		}
@@ -63,22 +67,22 @@ void empty_replacer(char *str)
 	}
 }
 
-int get_file(t_cub *main,int i)
+int	get_file(t_cub *main, int i)
 {
 	char	**map;
 	char	*tmp;
 	int		fd;
 
-	fd = open(main->file_path,O_RDWR,0644);
-	map = malloc(sizeof(char * ) * (main->map_size + 1));
-	if(!map)
+	fd = open(main->file_path, O_RDWR, 0644);
+	map = malloc(sizeof(char *) * (main->map_size + 1));
+	if (!map)
 		return (0);
-	while(main->map_size > i)
+	while (main->map_size > i)
 	{
 		map[i] = get_next_line(fd);
 		tmp = ft_strdup(map[i]);
 		free(map[i]);
-		map[i] = ft_strtrim(tmp,"\n");
+		map[i] = ft_strtrim(tmp, "\n");
 		free(tmp);
 		i++;
 	}
@@ -86,24 +90,23 @@ int get_file(t_cub *main,int i)
 	main->file = map;
 	return (1);
 }
-int check_if_seperated(t_cub *main,int i)
+
+int	check_if_seperated(t_cub *main, int i)
 {
-	int flag;
+	int	flag;
 
 	flag = 0;
 	main->map_size = 0;
-	while(!ft_map_attr_finder(main->file[i], "01N", 0, 0))
+	while (!ft_map_attr_finder(main->file[i], "01N", 0, 0))
 		i++;
-	if(!main->file[i])
-		return (0); 
-	if(i < main->attr_location)
+	if (!main->file[i] || i < main->attr_location)
 		return (0);
 	main->map_start = i;
-	while(main->file[i])
+	while (main->file[i])
 	{
-		if(ft_map_attr_finder(main->file[i], "01N", 0, 0))
+		if (ft_map_attr_finder(main->file[i], "01N", 0, 0))
 		{
-			if(flag == 1)
+			if (flag == 1)
 				return (0);
 			main->map_size++;
 		}
@@ -111,7 +114,7 @@ int check_if_seperated(t_cub *main,int i)
 			flag = 1;
 		i++;
 	}
-	if(main->map_size < 3)
+	if (main->map_size < 3)
 		return (0);
 	return (1);
 }

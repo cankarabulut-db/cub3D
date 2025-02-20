@@ -11,8 +11,11 @@ SRCS = ./src/parse/p_attr.c \
 		./src/parse/p_utils1.c \
 		./src/parse/p_file.c \
 		./src/parse/p_main.c \
+		./src/parse/p_main_norm.c \
 		./src/parse/p_map.c \
+		./src/parse/p_map_norm.c \
 		./src/parse/p_multimap.c \
+		./src/main_norm.c  \
 		./src/main.c  \
 		get_next_line/get_next_line.c \
 		get_next_line/get_next_line_utils.c \
@@ -25,7 +28,8 @@ SRCS = ./src/parse/p_attr.c \
 		./src/execute/exec7.c \
 		./src/execute/exec8.c \
 		./src/execute/exec9.c \
-
+		./src/parse/p_attr_norm.c \
+		
 OBJ = $(SRCS:.c=.o)
 
 %.o: %.c

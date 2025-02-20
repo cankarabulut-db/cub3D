@@ -1,40 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/20 16:37:01 by hayigit           #+#    #+#             */
+/*   Updated: 2025/02/20 17:32:50 by hayigit          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CUB3D_H
-#define CUB3D_H
+	# define CUB3D_H
 
-#define PARSE_WALL '*'
-#define FLOOR 4
-#define COLOR 5
-#define EMPTY 1
+	# define PARSE_WALL '*'
+	# define FLOOR 4
+	# define COLOR 5
+	# define EMPTY 1
 
-# include <fcntl.h>
-# include <math.h>
-# include <stdio.h>
-# include "../mlx/mlx.h"
-# include "../libft/libft.h"
-# include "../get_next_line/get_next_line.h"
-# include <X11/keysym.h>
+	# include <fcntl.h>
+	# include <math.h>
+	# include <stdio.h>
+	# include "../mlx/mlx.h"
+	# include "../libft/libft.h"
+	# include "../get_next_line/get_next_line.h"
+	# include <X11/keysym.h>
 
-# define PI		3.14159265358979323846
-# define EPSILON	1e-3
-# define MAX_RAY_LENGHT	100
-# define PLAYER_SIZE	0.2
-# define ESC_KEY 0xff1b
-# define X_KEY 0x0078
-# define Z_KEY 0x007a
-# define O_KEY 0x006f
-# define Q_KEY 0x0071 
-# define W_KEY 0x0077
-# define E_KEY 0x0065
-# define R_KEY 0x0072
-# define A_KEY 0x0061
-# define S_KEY 0x0073
-# define D_KEY 0x0064
-# define F_KEY 0x0066
-# define P_KEY 0x0070
-# define RIGHT_KEY 0xff53
-# define LEFT_KEY 0xff51
-# define UP_KEY 0xff52
-# define DOWN_KEY 0xff54
+	# define PI		3.14159265358979323846
+	# define EPSILON	1e-3
+	# define MAX_RAY_LENGHT	100
+	# define PLAYER_SIZE	0.2
+	# define ESC_KEY 0xff1b
+	# define X_KEY 0x0078
+	# define Z_KEY 0x007a
+	# define O_KEY 0x006f
+	# define Q_KEY 0x0071 
+	# define W_KEY 0x0077
+	# define E_KEY 0x0065
+	# define R_KEY 0x0072
+	# define A_KEY 0x0061
+	# define S_KEY 0x0073
+	# define D_KEY 0x0064
+	# define F_KEY 0x0066
+	# define P_KEY 0x0070
+	# define RIGHT_KEY 0xff53
+	# define LEFT_KEY 0xff51
+	# define UP_KEY 0xff52
+	# define DOWN_KEY 0xff54
 
 typedef struct s_tmp{
 	char	*floor;
@@ -335,6 +347,7 @@ int check_multimap(char **map);
 void string_filler(char *str,char *map,int longest);
 void fill_string(char *wall_map,int longest);
 int extension_checker(char *str);
+int	extension_checker_norm(t_cub *main);
 int walkability_check(t_cub *main,int x,int y);
 int ft_check(char **sur, int y,int x);
 void start_parse(t_cub *main);
@@ -368,9 +381,12 @@ void attr_get_integer(t_cub *main,int type);
 int get_attr_count(t_cub *main,int x);
 int start_cub(char **av);
 int ft_alpha_check(char *str);
-
-
-
-
+int attribute_space_check_norm(t_cub *main);
+void	map_content_walk_free(t_cub *main);
+void	player_finder(t_cub *main);
+void	single_line(t_cub *parser);
+int	file_validation(char **file);
+void	wall_drawing(t_cub3D *cub3d);
+int how_much_char(char *str,char c);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   p_utils1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nkarabul <nkarabul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:37:10 by nkarabul          #+#    #+#             */
-/*   Updated: 2025/02/13 12:37:12 by nkarabul         ###   ########.fr       */
+/*   Updated: 2025/02/20 16:21:09 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ int	free_double_ptr(char **str)
 	return (0);
 }
 
-void flood_fill(char **map, int x, int y)
+void	flood_fill(char **map, int x, int y)
 {
 	if (x < 0 || y < 0)
 		return ;
-	if(x >= (int)ft_strlen(map[y]) || y >= ft_strplen(map))
+	if (x >= (int)ft_strlen(map[y]) || y >= ft_strplen(map))
 		return ;
 	if (map[y][x] == PARSE_WALL)
 		return ;
@@ -43,16 +43,17 @@ void flood_fill(char **map, int x, int y)
 	flood_fill(map, x, y + 1);
 	flood_fill(map, x, y - 1);
 }
-int ft_map_attr_finder(char *str,char *tb_found,int i,int j)
+
+int	ft_map_attr_finder(char *str, char *tb_found, int i, int j)
 {
-	if(!str)
-		return 2;
-	while(str[i])
+	if (!str)
+		return (2);
+	while (str[i])
 	{
 		j = 0;
-		while(tb_found[j])
+		while (tb_found[j])
 		{
-			if(str[i] == tb_found[j])
+			if (str[i] == tb_found[j])
 				return (1);
 			else
 				j++;
@@ -62,11 +63,11 @@ int ft_map_attr_finder(char *str,char *tb_found,int i,int j)
 	return (0);
 }
 
-int fill_control(char *str,char a,int i)
+int	fill_control(char *str, char a, int i)
 {
-	while(str[i])
+	while (str[i])
 	{
-		if(str[i] == a || (str[i] == ' ' || str[i] == '\t'))
+		if (str[i] == a || (str[i] == ' ' || str[i] == '\t'))
 			i++;
 		else
 			return (0);
@@ -74,12 +75,13 @@ int fill_control(char *str,char a,int i)
 	return (1);
 }
 
-int extension_checker(char *str)
+int	extension_checker(char *str)
 {
-	int size;
+	int	size;
 
 	size = ft_strlen(str);
-	if(str[size - 1] == 'm' && str[size - 2] == 'p' && str[size - 3] == 'x' && str[size - 4] == '.') 
+	if (str[size - 1] == 'm' && str[size - 2] == 'p'
+		&& str[size - 3] == 'x' && str[size - 4] == '.')
 		return (1);
 	return (0);
 }

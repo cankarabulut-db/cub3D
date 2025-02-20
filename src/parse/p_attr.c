@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   p_attr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nkarabul <nkarabul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 12:37:29 by nkarabul          #+#    #+#             */
-/*   Updated: 2025/02/13 13:19:01 by nkarabul         ###   ########.fr       */
+/*   Created: 2025/02/20 14:36:22 by hayigit           #+#    #+#             */
+/*   Updated: 2025/02/20 17:24:50 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,33 +60,24 @@ void	free_attr(t_cub *main)
 	main->south_img = NULL;
 	main->north_img = NULL;
 }
-int	attribute_space_check(char *str, int x)
+
+int	get_loc_attr(t_cub *main, int x, int y)
 {
-	while (str[x])
-	{
-		if((str[x] >= 9 && str[x] <= 13) || str[x] == 32)
-			return (1);
-		x++;
-	}
-	return (0);
-}
-int	get_loc_attr(t_cub *main,int x,int y)
-{
-	y = get_attr_count(main,-1);
+	y = get_attr_count(main, -1);
 	if (y != 6)
 		return (0);
 	while (main->file[x])
-		get_attr(main,main->file[x++]);
-	if (!extension_checker(main->south_img) || !extension_checker(main->west_img)
-		|| !extension_checker(main->east_img) || !extension_checker(main->north_img)
-		|| !attr_digitcheck(main->floor) || ft_strplen(main->floor) != 3
-		|| ft_strplen(main->color) != 3 || !attr_digitcheck(main->color))
+		get_attr(main, main->file[x++]);
+	if (extension_checker_norm(main)
+		|| !attr_digitcheck(main->floor)
+		|| ft_strplen(main->floor) != 3
+		|| ft_strplen(main->color) != 3
+		|| !attr_digitcheck(main->color))
 	{
 		free_attr(main);
 		return (0);
 	}
-	if (attribute_space_check(main->east_img,0) || attribute_space_check(main->west_img,0)
-		|| attribute_space_check(main->south_img,0) || attribute_space_check(main->north_img,0))
+	if (attribute_space_check_norm(main))
 	{
 		free_attr(main);
 		return (0);
@@ -96,71 +87,46 @@ int	get_loc_attr(t_cub *main,int x,int y)
 	return (1);
 }
 
-int	attr_check(t_cub *main,int control,int x,int i)
+int	attr_check(t_cub *main, int control, int x, int i)
 {
-	int tmp;
+	int	tmp;
+
 	tmp = control;
 	if (main->file[x][i] == 'F')
 		control++;
-	else if (main->file[x][i] == 'C' && 
+	else if (main->file[x][i] == 'C' &&
 	(main->file[x][i + 1] == ' ' || main->file[x][i + 1] == '\t'))
 		control++;
-	else if ((main->file[x][i] == 'W' && main->file[x][i + 1] == 'E') 
+	else if ((main->file[x][i] == 'W' && main->file[x][i + 1] == 'E')
 	&& (main->file[x][i + 2] == ' ' || main->file[x][i + 2] == '\t'))
 		control++;
-	else if ((main->file[x][i] == 'E' && main->file[x][i + 1] == 'A') 
+	else if ((main->file[x][i] == 'E' && main->file[x][i + 1] == 'A')
 	&& (main->file[x][i + 2] == ' ' || main->file[x][i + 2] == '\t'))
 		control++;
-	else if ((main->file[x][i] == 'S' && main->file[x][i + 1] == 'O') 
+	else if ((main->file[x][i] == 'S' && main->file[x][i + 1] == 'O')
 	&& (main->file[x][i + 2] == ' ' || main->file[x][i + 2] == '\t'))
 		control++;
-	else if ((main->file[x][i] == 'N' && main->file[x][i + 1] == 'O') 
+	else if ((main->file[x][i] == 'N' && main->file[x][i + 1] == 'O')
 	&& (main->file[x][i + 2] == ' ' || main->file[x][i + 2] == '\t'))
 		control++;
-	if(tmp != control)
+	if (tmp != control)
 		main->attr_location = x;
-	return control;
+	return (control);
 }
 
 int	get_attr_count(t_cub *main, int x)
-{
-	int control;
-	int i;
+{	
+	int	control;
+	int	i;
 
 	i = 0;
 	control = 0;
-	while(main->file[++x])
+	while (main->file[++x])
 	{
-		while(main->file[x][i] == ' ')
+		while (main->file[x][i] == ' ')
 			i++;
-		control += attr_check(main,0,x,i);
+		control += attr_check(main, 0, x, i);
 		i = 0;
 	}
-	return control;
-}
-
-void	attr_get_integer(t_cub *main, int type)
-{
-	if(type == COLOR)
-	{
-		main->color_int = malloc(sizeof(int) * (3));
-		if(!main->color)
-			return ;
-		if(ft_strplen(main->color) != 3)
-			return ;
-		main->color_int[0] = ft_atoi(main->color[0]);
-		main->color_int[1] = ft_atoi(main->color[1]);
-		main->color_int[2] = ft_atoi(main->color[2]);
-	}
-	else if(type == FLOOR)
-	{
-		main->floor_int = malloc(sizeof(int) * (3));
-		if(!main->floor)
-			return ;
-		if(ft_strplen(main->floor) != 3)
-			return ;
-		main->floor_int[0] = ft_atoi(main->floor[0]);
-		main->floor_int[1] = ft_atoi(main->floor[1]);
-		main->floor_int[2] = ft_atoi(main->floor[2]);
-	}
+	return (control);
 }
