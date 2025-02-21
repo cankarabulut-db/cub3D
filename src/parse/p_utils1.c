@@ -6,7 +6,7 @@
 /*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:37:10 by nkarabul          #+#    #+#             */
-/*   Updated: 2025/02/20 16:21:09 by hayigit          ###   ########.fr       */
+/*   Updated: 2025/02/21 15:09:18 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	flood_fill(char **map, int x, int y)
 int	ft_map_attr_finder(char *str, char *tb_found, int i, int j)
 {
 	if (!str)
-		return (2);
+		return (0);
 	while (str[i])
 	{
 		j = 0;

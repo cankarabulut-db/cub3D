@@ -6,7 +6,7 @@
 /*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:36:22 by hayigit           #+#    #+#             */
-/*   Updated: 2025/02/21 14:12:27 by hayigit          ###   ########.fr       */
+/*   Updated: 2025/02/21 15:54:43 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ int	get_loc_attr(t_cub *main, int x, int y)
 		free_attr(main);
 		return (0);
 	}
+
 	return (1);
 }
 
