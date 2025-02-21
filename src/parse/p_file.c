@@ -6,7 +6,7 @@
 /*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 20:26:13 by nkarabul          #+#    #+#             */
-/*   Updated: 2025/02/21 16:17:51 by hayigit          ###   ########.fr       */
+/*   Updated: 2025/02/21 17:05:23 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int	check_if_seperated(t_cub *main, int i)
 
 	flag = 0;
 	main->map_size = 0;
-	while (!ft_map_attr_finder(main->file[i], "01N", 0, 0))
+	while (!ft_map_attr_finder(main->file[i], "01N", 0, 0) && main->file[i] != NULL)
 		i++;
 	if (!main->file[i] || i < main->attr_location)
 		return (0);
