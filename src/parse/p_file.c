@@ -6,7 +6,7 @@
 /*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 20:26:13 by nkarabul          #+#    #+#             */
-/*   Updated: 2025/02/21 15:55:44 by hayigit          ###   ########.fr       */
+/*   Updated: 2025/02/21 16:17:51 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	get_file(t_cub *main, int i)
 	{
 		map[i] = get_next_line(fd);
 		if (!map[i])
-			break;
+			break ;
 		tmp = ft_strdup(map[i]);
 		free(map[i]);
 		map[i] = ft_strtrim(tmp, "\n");

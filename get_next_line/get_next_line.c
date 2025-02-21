@@ -6,7 +6,7 @@
 /*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 19:11:51 by nkarabul          #+#    #+#             */
-/*   Updated: 2025/02/21 16:12:11 by hayigit          ###   ########.fr       */
+/*   Updated: 2025/02/21 16:15:58 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,17 @@ char	*ft_getline(char *dst)
 	line[x] = '\0';
 	return (line);
 }
-char *check_left(char *str){
+
+char	*check_left(char *str)
+{
 	if (ft_strlenn(str) == 0)
 	{
 		free(str);
-		return NULL;
+		return (NULL);
 	}
 	return (str);
 }
+
 char	*ft_get_left(char *dst)
 {
 	int		i;
@@ -94,7 +97,7 @@ char	*ft_get_left(char *dst)
 		str[len++] = dst[i++];
 	str[len] = '\0';
 	free(dst);
-	return check_left(str);
+	return (check_left(str));
 }
 
 char	*get_next_line(int fd)
@@ -109,6 +112,5 @@ char	*get_next_line(int fd)
 		return (NULL);
 	str = ft_getline(dst);
 	dst = ft_get_left(dst);
-	
 	return (str);
 }

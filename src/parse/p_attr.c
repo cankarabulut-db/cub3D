@@ -6,7 +6,7 @@
 /*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:36:22 by hayigit           #+#    #+#             */
-/*   Updated: 2025/02/21 15:54:43 by hayigit          ###   ########.fr       */
+/*   Updated: 2025/02/21 16:17:38 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ int	get_loc_attr(t_cub *main, int x, int y)
 		|| ft_strplen(main->floor) != 3
 		|| ft_strplen(main->color) != 3
 		|| !attr_digitcheck(main->color)
-		|| how_much_char(main->floor_check,',') != 2
-		|| how_much_char(main->color_check,',') != 2)
+		|| how_much_char(main->floor_check, ',') != 2
+		|| how_much_char(main->color_check, ',') != 2)
 	{
 		free_attr(main);
 		return (0);
@@ -88,7 +88,6 @@ int	get_loc_attr(t_cub *main, int x, int y)
 		free_attr(main);
 		return (0);
 	}
-
 	return (1);
 }
 

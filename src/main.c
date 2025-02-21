@@ -6,7 +6,7 @@
 /*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:21:46 by hayigit           #+#    #+#             */
-/*   Updated: 2025/02/21 13:20:46 by hayigit          ###   ########.fr       */
+/*   Updated: 2025/02/21 16:17:14 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,23 @@ int	ft_alpha_check(char *str)
 
 int	attr_digitcheck(char **str)
 {
-	int	tmp;
-	int	i;
+	char	*new;
+	int		tmp;
+	int		i;
 
 	i = 0;
 	while (str[i])
 	{
-		tmp = ft_atoi(str[i]);
+		new = ft_strtrim(str[i], " \t");
+		tmp = ft_atoi(new);
 		if ((tmp >= 0 && tmp <= 255) && ft_digit_check(str[i]))
 			i++;
 		else
+		{
+			free(new);
 			return (0);
+		}
+		free(new);
 	}
 	return (1);
 }
