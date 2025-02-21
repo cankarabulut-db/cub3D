@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec3.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgokcu <sgokcu@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 17:29:33 by erkoc             #+#    #+#             */
-/*   Updated: 2025/02/07 18:49:36 by sgokcu           ###   ########.fr       */
+/*   Updated: 2025/02/21 14:32:57 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,13 @@ int	ft_exit(void *cub3d)
 	free(game->p->west_img);
 	free(game->p->south_img);
 	free(game->p->north_img);
+	free(game->p->color_check);
+	free(game->p->floor_check);
+	free_double_ptr(game->p->color);
+	free_double_ptr(game->p->floor);
 	free_double_ptr(game->p->map);
+	free(game->p->floor_int);
+	free(game->p->color_int);
 	mlx_destroy_window(game->mlx.mlx, game->mlx.win.win);
 	mlx_destroy_image(game->mlx.mlx, game->mlx.img.img);
 	mlx_destroy_image(game->mlx.mlx, game->tex_east.img);

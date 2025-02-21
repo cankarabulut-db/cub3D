@@ -6,7 +6,7 @@
 /*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:53:11 by hayigit           #+#    #+#             */
-/*   Updated: 2025/02/20 16:04:10 by hayigit          ###   ########.fr       */
+/*   Updated: 2025/02/21 14:44:42 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ int	get_map(t_cub *main, int i)
 		}
 	}
 	if (!file_validation(main->file))
+	{
 		free_double_ptr(main->file);
+		return (0);
+	}
 	free_double_ptr(main->file);
 	return (1);
 }

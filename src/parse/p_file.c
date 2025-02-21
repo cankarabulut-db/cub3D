@@ -6,7 +6,7 @@
 /*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 20:26:13 by nkarabul          #+#    #+#             */
-/*   Updated: 2025/02/20 15:42:12 by hayigit          ###   ########.fr       */
+/*   Updated: 2025/02/21 14:41:35 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int	get_file(t_cub *main, int i)
 		free(tmp);
 		i++;
 	}
+	
 	map[i] = 0;
 	main->file = map;
 	return (1);

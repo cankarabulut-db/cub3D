@@ -6,7 +6,7 @@
 /*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:37:19 by nkarabul          #+#    #+#             */
-/*   Updated: 2025/02/20 18:19:16 by hayigit          ###   ########.fr       */
+/*   Updated: 2025/02/21 14:28:31 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,16 @@ int	find_the_player_loc(t_cub *main, char **str)
 void	s_init(t_cub *main)
 {
 	main->file = NULL;
+	main->multiple_map = NULL;
 	main->file_path = NULL;
 	main->map_size = -1;
 	main->east_img = NULL;
 	main->west_img = NULL;
 	main->south_img = NULL;
 	main->north_img = NULL;
+	main->floor_check = NULL;
+	main->color_check = NULL;
+	main->attr_location = 0;
 	main->floor = NULL;
 	main->color = NULL;
 	main->map = NULL;
@@ -64,7 +68,7 @@ void	s_init(t_cub *main)
 	main->floor_int = 0;
 	main->map_start = -1;
 	main->perspective = 0;
-	main->s_line = ft_strdup("");
+	main->s_line = NULL;
 }
 
 void	get_attr_floor_color(t_cub *main, char *str, char b, int i)
@@ -72,8 +76,6 @@ void	get_attr_floor_color(t_cub *main, char *str, char b, int i)
 	char	*tmp;
 
 	tmp = str;
-	if (how_much_char(str, ',') != 2)
-		error_write_nfree("Color yapılandırması yanlış");
 	if (b == COLOR)
 	{
 		main->color_check = ft_strdup(str);

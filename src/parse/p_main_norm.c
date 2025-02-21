@@ -6,7 +6,7 @@
 /*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:50:30 by hayigit           #+#    #+#             */
-/*   Updated: 2025/02/20 18:19:29 by hayigit          ###   ########.fr       */
+/*   Updated: 2025/02/21 14:03:40 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	single_line(t_cub *parser)
 	char	*temp;
 	int		i;
 
+	parser->s_line = ft_strdup("");
 	map = surrounded_map(parser);
 	i = 0;
 	while (map[i])

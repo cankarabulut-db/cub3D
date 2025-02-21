@@ -6,7 +6,7 @@
 /*   By: hayigit <hayigit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:36:22 by hayigit           #+#    #+#             */
-/*   Updated: 2025/02/20 17:24:50 by hayigit          ###   ########.fr       */
+/*   Updated: 2025/02/21 14:12:27 by hayigit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,10 @@ void	free_attr(t_cub *main)
 		free(main->north_img);
 	free_color_floor(main->color_int);
 	free_color_floor(main->floor_int);
+	free(main->floor_check);
+	free(main->color_check);
+	main->floor_check = NULL;
+	main->color_check = NULL;
 	main->floor = NULL;
 	main->color = NULL;
 	main->east_img = NULL;
@@ -72,7 +76,9 @@ int	get_loc_attr(t_cub *main, int x, int y)
 		|| !attr_digitcheck(main->floor)
 		|| ft_strplen(main->floor) != 3
 		|| ft_strplen(main->color) != 3
-		|| !attr_digitcheck(main->color))
+		|| !attr_digitcheck(main->color)
+		|| how_much_char(main->floor_check,',') != 2
+		|| how_much_char(main->color_check,',') != 2)
 	{
 		free_attr(main);
 		return (0);
@@ -82,8 +88,6 @@ int	get_loc_attr(t_cub *main, int x, int y)
 		free_attr(main);
 		return (0);
 	}
-	printf("%s\n", main->floor_check);
-	printf("%s\n", main->color_check);
 	return (1);
 }
 
