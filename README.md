@@ -1,77 +1,75 @@
-````markdown name=README.md
-# 🎮 Cub3D
+# Cub3D
 
-Cub3D is a simple 3D game engine inspired by Wolfenstein 3D. This project uses basic raycasting techniques to generate a 3D world from a 2D map. It is developed as part of the 42 School curriculum.
+![Cub3D Logo](https://via.placeholder.com/800x200.png?text=Cub3D)
 
-![Wolfenstein 3D]([https://upload.wikimedia.org/wikipedia/en/1/1d/Wolfenstein_3D_Coverart.png](https://media.wired.com/photos/5932a6632a990b06268ac00b/master/w_2240,c_limit/wolfenstein_300px.jpg))
+Welcome to Cub3D, a 3D game engine project developed at 42 Istanbul. This project is inspired by the classic game Wolfenstein 3D and aims to provide a basic understanding of ray-casting and 3D rendering.
 
-## 📋 Table of Contents
+## Table of Contents
+
+- [Introduction](#introduction)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [What is Raycasting?](#what-is-raycasting)
 - [Screenshots](#screenshots)
-- [Contributors](#contributors)
+- [Credits](#credits)
 - [License](#license)
 
-## ✨ Features
-- Generate a 3D world from a 2D map
-- Basic raycasting algorithm
-- Wall collision detection
-- Simple movement and rotation controls
-- Texture support
-- Sprite support
+## Introduction
 
-## 🛠️ Installation
+Cub3D is a 3D game engine project created as part of the curriculum at 42 Istanbul. The goal of this project is to implement a simple 3D game using ray-casting techniques. By completing this project, you will gain a deeper understanding of graphics programming and game development.
 
-### Requirements
-- C compiler (gcc or clang)
-- make
+## Features
 
-### Steps
-1. Clone the repository:
-    ```sh
-    git clone https://github.com/cankarabulut-db/cub3d.git
-    cd cub3d
-    ```
+- Basic ray-casting engine
+- Textured walls and sprites
+- Mini-map
+- Simple player movement and collision detection
+- Configurable map files
 
-2. Compile the project:
-    ```sh
-    make
-    ```
+## Installation
 
-3. Run the game:
-    ```sh
-    ./cub3D map.cub
-    ```
+Follow these steps to install and run Cub3D on your machine:
 
-## 🚀 Usage
+1. **Clone the repository:**
 
-- Use `W`, `A`, `S`, `D` keys to move.
-- Use `Left` and `Right` arrow keys to rotate view.
+   ```sh
+   git clone https://github.com/yourusername/cub3d.git
+   cd cub3d
+   ```
 
-## 🕹️ What is Raycasting?
+2. **Build the project:**
 
-Raycasting is a technique used to simulate a 3D world by casting rays in a 2D plane. This technique checks if each ray hits a wall and then draws the corresponding vertical slice on the screen based on the hit point. Classic games like Wolfenstein 3D used this technique to create their 3D graphics.
+   ```sh
+   make
+   ```
 
-### Raycasting Steps
-1. Cast a ray for each vertical line on the screen.
-2. Check if the ray hits a wall.
-3. Calculate the wall's height based on the hit point.
-4. Draw the corresponding vertical slice on the screen.
+3. **Run the game:**
 
-## 📸 Screenshots
+   ```sh
+   ./cub3d path/to/map.cub
+   ```
 
-![Screenshot 1](screenshots/screenshot1.png)
-![Screenshot 2](screenshots/screenshot2.png)
+## Usage
 
-## 🏷️ Tags
-`raycasting`, `3D engine`, `C language`, `game development`, `Wolfenstein 3D`, `42 School`, `graphics programming`
+- Use the `W`, `A`, `S`, `D` keys to move the player.
+- Use the `Left` and `Right` arrow keys to rotate the player's view.
+- Press `ESC` to exit the game.
 
-## 🤝 Contributors
-- [nkarabul](https://profile.intra.42.fr/users/nkarabul)
-- [Other Contributors](https://github.com/username/cub3d/graphs/contributors)
+## Screenshots
 
-## 📄 License
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
-````
+Here are some screenshots of the game in action:
+
+![Screenshot 1](https://via.placeholder.com/800x400.png?text=Screenshot+1)
+![Screenshot 2](https://via.placeholder.com/800x400.png?text=Screenshot+2)
+
+## Credits
+
+Cub3D is developed by students at 42 Istanbul. Special thanks to the 42 Network and the open-source community for their support and contributions.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+---
+
+Made with ❤️ at 42 Istanbul
