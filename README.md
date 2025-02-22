@@ -1,6 +1,6 @@
 # Cub3D
 
-![Cub3D Logo](https://via.placeholder.com/800x200.png?text=Cub3D)
+![Cub3D Logo](https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fb54acda4-2e96-4b12-ab6d-5c0b40b586d2%2F_2018-11-30__5.03.31.png&blockId=d77fd954-7664-4a90-9c3f-6d0e49cb6226&width=3600)
 
 Welcome to Cub3D, a 3D game engine project developed at 42 Istanbul. This project is inspired by the classic game Wolfenstein 3D and aims to provide a basic understanding of ray-casting and 3D rendering.
 
